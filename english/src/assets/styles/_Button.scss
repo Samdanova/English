@@ -1,0 +1,40 @@
+.btn {
+    display: inline-block;
+    box-sizing: border-box;
+    color: $lightColor;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    text-align: center;
+    padding: 1.1rem 3.4rem 1.1rem 3.4rem;
+    border: none;
+
+    &:hover {
+        cursor: pointer;
+        transition: background-color 0.4s ease;
+    }
+_&delete{
+    background: $DeleteColor;
+
+    &:hover {
+        background: $DeleteHover;
+    }
+
+}
+_&edit{
+    background: $accentColor;
+
+    &:hover {
+        background: $accentColor_hover;
+    }
+}
+_&save{
+    background: $rightColor;
+
+    &:hover {
+        background: $rightColorHover;
+    }
+}
+}
