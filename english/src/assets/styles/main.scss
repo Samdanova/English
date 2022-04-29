@@ -5,3 +5,7 @@
 @import './Footer';
 @import './Header';
 @import './TableWords';
+
+body{
+    font-family: $defaultFont
+}

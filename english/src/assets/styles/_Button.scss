@@ -1,39 +1,30 @@
 .btn {
-    display: inline-block;
-    box-sizing: border-box;
+    font-size: 0.7rem;
     color: $lightColor;
-    font-size: 1.1rem;
-    line-height: 1.55;
-    font-weight: 600;
     letter-spacing: 0.5px;
     text-decoration: none;
     text-align: center;
-    padding: 1.1rem 3.4rem 1.1rem 3.4rem;
     border: none;
-
+    padding: 0.4rem 0.2rem;
     &:hover {
         cursor: pointer;
         transition: background-color 0.4s ease;
+        background: $DeleteHover
     }
-    &_delete{
-    background: $DeleteColor;
-
-    &:hover {
-        background: $DeleteHover;
-    }
-
-}
 &_edit{
-    background: $accentColor;
+    background: $accentColor_hover;
+    margin: 0rem 1rem;
 
     &:hover {
-        background: $accentColor_hover;
+        color:white;
+        background: $darkColor
     }
 }
 &_save{
     background: $rightColor;
 
     &:hover {
+        color:white;
         background: $rightColorHover;
     }
 }

@@ -1,0 +1,51 @@
+.table {
+    width: 95%;
+    border-collapse: collapse;
+    table-layout: fixed;
+margin: 5% auto;
+border: 2px solid $defaultColor_hover;
+
+    &__header {
+        text-align: center;
+        padding-left: 3rem;
+        padding-top: 1rem;
+    }
+
+    &__header_p {
+        margin-top: -2.5rem;
+        margin-left: 3.5rem;
+        font-size: 1.5rem;
+    }
+
+    &__columns,
+    &__rows {
+        text-align: left;
+    }
+    &__columns_item{
+        padding: 1%;
+        font-size: 1rem;
+    }
+
+}
+
+.table__columns {
+    background-color: $defaultColor_hover;
+    color: white;
+    font-weight: 600;
+    padding: 3%;
+}
+
+.table__data {
+    text-align: left;
+    font-weight: 400;
+    border-bottom: 0.1px solid rgb(236, 233, 233);
+    padding: 1rem;
+    background-color: white;
+}
+
+.table_tags{
+    text-align: center  ;
+    border:2px solid $defaultColor_hover;
+    background-color: rgb(198, 229, 231);
+    width: 40%;
+}
