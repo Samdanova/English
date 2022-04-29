@@ -15,7 +15,7 @@
         cursor: pointer;
         transition: background-color 0.4s ease;
     }
-_&delete{
+    &_delete{
     background: $DeleteColor;
 
     &:hover {
@@ -23,14 +23,14 @@ _&delete{
     }
 
 }
-_&edit{
+&_edit{
     background: $accentColor;
 
     &:hover {
         background: $accentColor_hover;
     }
 }
-_&save{
+&_save{
     background: $rightColor;
 
     &:hover {
