@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import TableOfWords from './assets/components/TableOfWords';
 import CardWord from './assets/components/cardWord';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import words from './json/words.json';
 
 
