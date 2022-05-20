@@ -14,10 +14,6 @@ function TableOfWords(props) {
         setPressed(!pressedEdit);
         setSave(!pressedSave);
     }
-    // const [pressedCancel, setCancel] = useState(false);
-    // const cancelEgiting = () => {
-    //     setCancel(!pressedCancel);
-    // };
 
     const [state, setState] = useState(props);
 
@@ -41,16 +37,16 @@ function TableOfWords(props) {
                 <td className="table__data">{pressedEdit
                     && <Input data-name={'english'} value={state.english} onChange={handleChange} defaultValue={props.english} />
                 }{pressedSave
-                    && props.english}</td>
+                    && state.english}</td>
                 <td className="table__data">{pressedEdit
                     && <Input data-name={'transcription'} value={state.transcription} onChange={handleChange} defaultValue={props.transcription} />}
-                    {pressedSave && props.transcription}</td>
+                    {pressedSave && state.transcription}</td>
                 <td className="table__data">{pressedEdit
                     ? <Input data-name={'russian'} value={state.russian} defaultValue={props.russian} onChange={handleChange} />
-                    : props.russian}</td>
+                    : state.russian}</td>
                 <td className="table__data"><div className='table_tags'>{pressedEdit
                     ? <Input defaultValue={props.tags} data-name={'tags'} value={state.tags} onChange={handleChange} />
-                    : props.tags}</div></td>
+                    : state.tags}</div></td>
                 <td className="table__data">
                     {pressedEdit
                         && <Button onClick={saveString} className=" btn btn_save" type="default" shape="circle" size="large">
