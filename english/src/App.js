@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import TableOfWords from './assets/components/TableOfWords';
-import CardWord from './assets/components/cardWord';
+// import CardWord from './assets/components/cardWord';
+import SliderCard from './assets/components/sliderCard';
 import 'antd/dist/antd.min.css';
 import words from './json/words.json';
 
@@ -31,12 +32,13 @@ function App() {
       }
     </table>
     <div className='card-container'>
-    {words.map((word) => 
+      <SliderCard></SliderCard>
+    {/* {words.map((word) => 
       <CardWord english={word.english}
       transcription={word.transcription}
       russian={word.russian}></CardWord>
     )
-    }
+    } */}
       </div>   
     </div>
   );
