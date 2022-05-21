@@ -9,12 +9,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+    box-shadow: 10px 10px 12px 10px rgba(0,0,0,0.2);
+    border: 4px solid $rightColor;
+    transition: 1s;
     width: 15rem;
     height: 20rem;
     margin: 5%;
-    background-color: rgb(245, 246, 247);
+    background-color: rgb(237, 245, 236);
+
 &:hover{
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2);
 }
@@ -24,7 +26,13 @@
 &_translation {
     margin-top: 4.4rem;
 }
+
+
+
 }
+
+
+
 
 .card-content_word{
     font-weight: bold;

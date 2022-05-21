@@ -15,12 +15,12 @@ function TableOfWords(props) {
         setSave(!pressedSave);
     }
 
-    const [state, setState] = useState(props);
+    const [state, setState] = useState(props); // здесь состояние слова
 
     const handleChange = (event) => {
         setState({
             ...state,
-            [event.target.dataset.name]: event.target.value,
+            [event.target.dataset.name]: event.target.value, //переписывается свойство
         });
     };
 
@@ -36,7 +36,7 @@ function TableOfWords(props) {
             <tr>
                 <td className="table__data">{pressedEdit
                     && <Input data-name={'english'} value={state.english} onChange={handleChange} defaultValue={props.english} />
-                }{pressedSave
+                }{pressedSave //здесь используем state, так как нужно подтянуть последнее состояние 
                     && state.english}</td>
                 <td className="table__data">{pressedEdit
                     && <Input data-name={'transcription'} value={state.transcription} onChange={handleChange} defaultValue={props.transcription} />}

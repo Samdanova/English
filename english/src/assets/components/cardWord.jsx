@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'antd';
 
 export default function CardWord({ word }) {
@@ -7,6 +7,10 @@ export default function CardWord({ word }) {
     const handleChange = () => {
         setPressed(!pressed);
     }
+
+    useEffect(() => { //после изменения слова, возвращает нажатие- false, чтобы слово не было открыто
+        setPressed(false);
+    }, [word]);
     return (
         <div className='card'>
             <div className='card-content'>
