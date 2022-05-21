@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import TableOfWords from './assets/components/TableOfWords';
 // import CardWord from './assets/components/cardWord';
@@ -8,6 +8,14 @@ import words from './json/words.json';
 
 
 function App() {
+
+  const [wordCollection,setwordCollection] = useState (words)
+  const handleDelete =(name)=>{
+    const array = [...wordCollection]; 
+    let index = array.findIndex(el => el.english === name);
+    array.splice(index, 1);
+    setwordCollection(array);
+  }
   return (
     <div className="App">
           <table className="table">
@@ -21,8 +29,9 @@ function App() {
                 </tr>
             </thead>
       {
-        words.map((word) => 
+        wordCollection.map((word) => 
         <TableOfWords
+        onClick={handleDelete}
         english={word.english}
         transcription={word.transcription}
         russian={word.russian}

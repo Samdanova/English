@@ -3,6 +3,7 @@ import { Input } from 'antd';
 import { Button } from 'antd';
 
 function TableOfWords(props) {
+    // const [index, countIndex] = useState(0);
 
     const [pressedSave, setSave] = useState(true);
     const saveString = () => {
@@ -30,6 +31,9 @@ function TableOfWords(props) {
         });
     };
 
+    const Delete = (event) => {
+        props.onClick(event.target.english)
+    }
 
     return (
         <tbody className="table__tbody">
@@ -61,7 +65,7 @@ function TableOfWords(props) {
                             Cancel
                         </Button>
                         :
-                        <Button className="btn btn_del" type="danger " shape="circle" size="large">
+                        <Button onClick={Delete} className="btn btn_del" type="danger " shape="circle" size="large">
                             Del
                         </Button>
                     }
