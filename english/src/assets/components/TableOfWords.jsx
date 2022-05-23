@@ -31,8 +31,8 @@ function TableOfWords(props) {
         });
     };
 
-    const Delete = (event) => {
-        props.onClick(event.target.english)
+    const Delete = () => {
+        props.onClick(state.english)
     }
 
     return (

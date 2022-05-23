@@ -12,8 +12,10 @@ function App() {
   const [wordCollection,setwordCollection] = useState (words)
   const handleDelete =(name)=>{
     const array = [...wordCollection]; 
+    console.log( array.findIndex(el => el.english === name))
     let index = array.findIndex(el => el.english === name);
     array.splice(index, 1);
+    console.log(12,array)
     setwordCollection(array);
   }
   return (
