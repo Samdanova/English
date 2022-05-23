@@ -9,13 +9,12 @@ import words from './json/words.json';
 
 function App() {
 
-  const [wordCollection,setwordCollection] = useState (words)
+  const [wordCollection, setwordCollection] = useState (words)
   const handleDelete =(name)=>{
-    const array = [...wordCollection]; 
-    console.log( array.findIndex(el => el.english === name))
-    let index = array.findIndex(el => el.english === name);
+    let array = [...wordCollection]; 
+    let index = wordCollection.findIndex(el => el.english === name);
+    if (index===-1) return false;
     array.splice(index, 1);
-    console.log(12,array)
     setwordCollection(array);
   }
   return (
