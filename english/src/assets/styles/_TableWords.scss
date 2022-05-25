@@ -36,6 +36,7 @@ border: 2px solid $defaultColor_hover;
 }
 
 .table__data {
+    font-size: 1.2rem;
     text-align: left;
     font-weight: 400;
     border-bottom: 0.1px solid rgb(236, 233, 233);
@@ -46,6 +47,6 @@ border: 2px solid $defaultColor_hover;
 .table_tags{
     text-align: center  ;
     border:2px solid $defaultColor_hover;
-    background-color: rgb(198, 229, 231);
+    background-color: $defaultColor;
     width: 40%;
 }

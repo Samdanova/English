@@ -6,6 +6,7 @@
     text-align: center;
     border: none;
     padding: 0.4rem 0.2rem;
+    color:white !important;
     &:hover {
         cursor: pointer;
         transition: background-color 0.4s ease;
@@ -17,25 +18,21 @@
         background: $rightColorHover;
     }
 &_edit{
-    background: $accentColor_hover;
+    background: $accentColor_hover !important;
     margin: 0rem 1rem;
 
     &:hover {
         color:white;
-        background: $darkColor
+        background-color: $darkYelow;
     }
 }
 &_save{
-    background: $rightColor;
+    background: $rightColor !important;
     height: 3rem;
     padding: 0.5rem 0.6rem;
 
     &:hover {
-        color:white;
-        background: $rightColorHover;
-    }
-    &:active {
-        color:white;
+        color:white ;
         background: $rightColorHover;
     }
 

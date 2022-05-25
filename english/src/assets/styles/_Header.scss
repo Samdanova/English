@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    justify-content: left;
+    padding: 1rem;
+    align-items: center;
+    background-color:$headerground;
+    // color: $colorHeaderFooterBg; 
+    text-align: center;
+    font-size:2rem;
+    height: 90px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logoImg {
+    max-width: 100px;
+}
+
+.notActivLink {
+    margin: 1rem;
+    color: white;
+
+    &:hover {
+        color: black;
+    }
+}

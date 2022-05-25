@@ -31,8 +31,8 @@ function TableOfWords(props) {
         });
     };
 
-    const Delete = () => {
-        props.onClick(state.english)
+    const handleDelete = () => {
+        props.deleteWord(state.english)
     }
 
     return (
@@ -51,20 +51,20 @@ function TableOfWords(props) {
                 ? <Input defaultValue={props.tags} data-name={'tags'} value={state.tags} onChange={handleChange} />
                 : state.tags}</div></td>
             <td className="table__data">
-                {pressedEdit
-                    && <Button onClick={saveString} className=" btn btn_save" type="default" shape="circle" size="large">
+                {pressedEdit ?
+                    <Button onClick={saveString} className=" btn btn_save" type="default" shape="circle" size="large">
                         Save
-                    </Button>}
-                {!pressedEdit &&
-                    <Button onClick={editString} className="btn btn_edit" type="default" shape="circle" size="large">
+                    </Button>
+                    : <Button onClick={editString} className="btn btn_edit" type="default" shape="circle" size="large">
                         Edit
-                    </Button>}
+                    </Button>
+                }
                 {pressedEdit ?
                     <Button onClick={handleCancel} className="btn btn_del btn_cancel" type="danger " shape="circle" size="large">
                         Cancel
                     </Button>
                     :
-                    <Button onClick={Delete} className="btn btn_del" type="danger " shape="circle" size="large">
+                    <Button onClick={handleDelete} className="btn btn_del" type="danger " shape="circle" size="large">
                         Del
                     </Button>
                 }

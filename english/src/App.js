@@ -1,11 +1,17 @@
 import React, {useState} from 'react';
-import './App.css';
 import TableOfWords from './assets/components/TableOfWords';
-// import CardWord from './assets/components/cardWord';
 import SliderCard from './assets/components/sliderCard';
+import Header from './assets/components/header';
+import NotFoundPage from './assets/components/NotFoundPage'
 import 'antd/dist/antd.min.css';
 import words from './json/words.json';
-import './index.css'
+import './App.css';
+import './index.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
 
@@ -18,22 +24,31 @@ function App() {
     setwordCollection(array);
   }
   return (
-    <div className="App">
-          <table className="table">
+    <Router>
+ <div className="App">
+
+<Routes>
+  <Route path="/" element={<Header />}>
+          <Route path="/game" element={ 
+          <div className='card-container'>
+      <SliderCard></SliderCard>
+      </div>   }
+             />
+          <Route index element={<table className="table">
           <thead>
                 <tr className="table__columns">
-                    <th className="table__columns_item" colspan="1">English</th>
-                    <th className="table__columns_item" colspan="1">Transctiption</th>
-                    <th className="table__columns_item" colspan="1">Russian</th>
-                    <th className="table__columns_item" colspan="1">Tags</th>
-                    <th className="table__columns_item" colspan="1">Action</th>
+                    <th className="table__columns_item" colSpan={1}>English</th>
+                    <th className="table__columns_item" colSpan={1}>Transctiption</th>
+                    <th className="table__columns_item" colSpan={1}>Russian</th>
+                    <th className="table__columns_item" colSpan={1}>Tags</th>
+                    <th className="table__columns_item" colSpan={1}>Action</th>
                 </tr>
             </thead>
             <tbody className="table__tbody">
       {
         wordCollection.map((word) => 
         <TableOfWords
-        onClick={handleDelete}
+        deleteWord={handleDelete}
         key={word.english} //
         english={word.english}
         transcription={word.transcription}
@@ -43,17 +58,12 @@ function App() {
         )
       }
       </tbody>
-    </table>
-    <div className='card-container'>
-      <SliderCard></SliderCard>
-    {/* {words.map((word) => 
-      <CardWord english={word.english}
-      transcription={word.transcription}
-      russian={word.russian}></CardWord>
-    )
-    } */}
-      </div>   
-    </div>
+    </table>} />
+    <Route path="*" element={<NotFoundPage />}/>
+   </Route>
+</Routes>
+</div>
+</Router>
   );
 }
 

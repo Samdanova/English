@@ -1,11 +1,12 @@
 @import './Color';
 @import './Font';
-@import './Button';
 @import './CardWord';
 @import './Footer';
 @import './Header';
 @import './TableWords';
 @import './Slider';
+@import './Button';
+
 body{
     font-family: $defaultFont
 }
