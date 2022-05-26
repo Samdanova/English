@@ -26,9 +26,8 @@ function TableOfWords(props) {
     };
 
     const handleCancel = () => {
-        setState({
-            ...props,
-        });
+        setPressed(!pressedEdit);
+        setSave(!pressedSave);
     };
 
     const handleDelete = () => {

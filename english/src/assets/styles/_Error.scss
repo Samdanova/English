@@ -1,0 +1,104 @@
+
+// .error-page {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     background-color: rgba(1, 1, 1, 0.85);
+//     margin: -2% auto;
+
+// }
+
+// .error-img {
+// padding-top: 2%;
+//     max-width:70%;
+// }
+.error-link {
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+    position: absolute;
+left: 55%;
+top: 25%;
+transform: translate(-50%, -50%) rotateZ(20deg);
+&:hover {
+    color: $defaultColorHoverWord;
+    font-size: 2.5rem;
+}
+}
+
+.error-h {position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%) rotateZ(20deg);
+font-size: 20rem;
+font-weight: 800;
+text-shadow: $defaultColorHoverWord 1px 1px,
+$defaultColorHoverWord 2px 2px,
+  $defaultColorHoverWord 3px 3px,
+  $defaultColorHoverWord 4px 4px,
+  $defaultColorHoverWord 5px 5px,
+  $defaultColorHoverWord 6px 6px,
+  $defaultColorHoverWord 7px 7px,
+  $defaultColorHoverWord 8px 8px,
+  $defaultColorHoverWord 9px 9px,
+  $defaultColorHoverWord 10px 10px,
+  $defaultColorHoverWord 11px 11px,
+  $defaultColorHoverWord 12px 12px,
+  $defaultColorHoverWord 13px 13px,
+  $defaultColorHoverWord 14px 14px,
+  $defaultColorHoverWord 15px 15px,
+$defaultColorHoverWord 16px 16px,
+$defaultColorHoverWord 17px 17px,
+$defaultColorHoverWord 18px 18px,
+$defaultColorHoverWord 19px 19px,
+$defaultColorHoverWord 20px 20px,
+$defaultColorHoverWord 21px 21px,
+$defaultColorHoverWord 22px 22px,
+$defaultColorHoverWord 23px 23px,
+  $defaultColorHoverWord 24px 24px,
+  $defaultColorHoverWord 25px 25px,
+  $defaultColorHoverWord 26px 26px,
+  $defaultColorHoverWord 27px 27px,
+  $defaultColorHoverWord 28px 28px,
+  $defaultColorHoverWord 29px 29px,
+  $defaultColorHoverWord 30px 30px,
+  $defaultColorHoverWord 31px 31px,
+  $defaultColorHoverWord 32px 32px,
+  $defaultColorHoverWord 33px 33px,
+  $defaultColorHoverWord 34px 34px,
+  $defaultColorHoverWord 35px 35px,
+  $defaultColorHoverWord 36px 36px,
+  $defaultColorHoverWord 37px 37px,
+  $defaultColorHoverWord 38px 38px,
+  $rightColor 39px 39px,
+  $defaultColorHoverWord 40px 40px,
+  $defaultColorHoverWord 41px 41px,
+  $defaultColorHoverWord 42px 42px,
+  $defaultColorHoverWord 43px 43px,
+  $defaultColorHoverWord 44px 44px,
+  $defaultColorHoverWord 45px 45px,
+  $defaultColorHoverWord 46px 46px,
+  $defaultColorHoverWord 47px 47px,
+  $rightColor 48px 48px,
+  $defaultColorHoverWord 49px 49px,
+  $defaultColorHoverWord 50px 50px,
+  $defaultColorHoverWord 51px 51px,
+  $defaultColorHoverWord 52px 52px,
+  $defaultColorHoverWord 53px 53px,
+  $defaultColorHoverWord 54px 54px,
+  $rightColor 55px 55px,
+  $rightColor 56px 56px;
+
+  &::after {
+    display: block;
+    content: 'Sorry, something went wrong. You should better spend time learning English';
+    font-size: 1.8rem;
+    text-shadow: $defaultColorHoverWord 1px 1px,
+    $defaultColorHoverWord 2px 2px,
+    $defaultColorHoverWord 3px 3px,
+    $defaultColorHoverWord 4px 4px,
+    $defaultColorHoverWord 5px 5px,
+    $defaultColorHoverWord 6px 6px;
+    }
+}
+
