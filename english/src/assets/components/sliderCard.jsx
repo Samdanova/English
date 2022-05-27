@@ -25,6 +25,7 @@ export default function SliderCard({ choosenCard = 0 }) { //передаем п�
 
     useEffect(() => {
         // const indexHand = searchParams.get('index'); //пока не работает
+        // const newIndex = checkIndex(indexHand);
         const newIndex = checkIndex(choosenCard);
         changeIndex(newIndex);
     }, [choosenCard]) //после изменения выбранной карточки, происходит проверка индекса
