@@ -1,26 +1,48 @@
-import React, { useEffect, useState } from 'react';
 import { Button } from 'antd';
+import React, { useEffect, useState, useRef } from 'react';
 
-export default function CardWord({ word }) {
+export default function CardWord({ word, count }) {
+    const ref = useRef(null);
 
     const [pressed, setPressed] = useState(false);
     const handleChange = () => {
         setPressed(!pressed);
+        count();
     }
 
-    useEffect(() => { //после изменения слова, возвращает нажатие- false, чтобы слово не было открыто
-        setPressed(false);
-    }, [word]);
+    useEffect(
+        () => {
+            ref.current.focus()
+        },
+    );
+
+    useEffect(
+        () => { //после изменения слова, возвращает нажатие- false, чтобы слово не было открыто
+            setPressed(false);
+        },
+        [word]
+    );
+
     return (
         <div className='card'>
             <div className='card-content'>
                 <div className='card-content_word'>{word.english}</div>
                 <p>{word.transcription}</p>
             </div>
-            {pressed ? <div className='card_translation'>{word.russian}</div> : <Button onClick={handleChange} className='card_btn btn btn_save' type="primary" shape="round" size="large" >
-                Проверить
-            </Button>}
-
+            {
+                pressed
+                    ? <div className='card_translation'>{word.russian}</div>
+                    : <Button
+                        ref={ref}
+                        onClick={handleChange}
+                        className='card_btn btn btn_save'
+                        type="primary"
+                        shape="round"
+                        size="large"
+                    >
+                        Check
+                    </Button>
+            }
 
         </div >
     )

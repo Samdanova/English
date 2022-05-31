@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import TableOfWords from './assets/components/TableOfWords';
+
 import SliderCard from './assets/components/sliderCard';
 import Header from './assets/components/header';
 import NotFoundPage from './assets/components/NotFoundPage'
@@ -14,7 +15,7 @@ import {
 } from "react-router-dom";
 
 function App() {
-
+   
     const [wordCollection, setwordCollection] = useState(words)
     const handleDelete = (name) => {
         let array = [...wordCollection];
