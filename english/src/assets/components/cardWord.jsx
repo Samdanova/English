@@ -2,7 +2,7 @@ import { Button } from 'antd';
 import React, { useEffect, useState, useRef } from 'react';
 
 export default function CardWord({ word, count }) {
-    const ref = useRef(null);
+    const ref = useRef();
 
     const [pressed, setPressed] = useState(false);
     const handleChange = () => {
@@ -13,7 +13,7 @@ export default function CardWord({ word, count }) {
     useEffect(
         () => {
             ref.current.focus()
-        },
+        }, [word]
     );
 
     useEffect(
@@ -31,8 +31,8 @@ export default function CardWord({ word, count }) {
             </div>
             {
                 pressed
-                    ? <div className='card_translation'>{word.russian}</div>
-                    : <Button
+                    ? (<div className='card_translation'>{word.russian}</div>)
+                    : (<Button
                         ref={ref}
                         onClick={handleChange}
                         className='card_btn btn btn_save'
@@ -41,7 +41,7 @@ export default function CardWord({ word, count }) {
                         size="large"
                     >
                         Check
-                    </Button>
+                    </Button>)
             }
 
         </div >
