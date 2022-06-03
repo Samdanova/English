@@ -5,13 +5,9 @@ export default function CardWord({ word, count }) {
     const ref = useRef();
 
     const [pressed, setPressed] = useState(false);
-    const handleChange = (event) => {
-        if (event.type === "mousedown") {
-            setPressed(!pressed);
-        } else {
-            setTimeout(() => setPressed(!pressed), 1000);
-            count();
-        }
+    const handleChange = () => {
+        setPressed(!pressed);
+        count();
     }
 
     useEffect(
@@ -33,18 +29,16 @@ export default function CardWord({ word, count }) {
                 <div className='card-content_word'>{word.english}</div>
                 <p>{word.transcription}</p>
             </div>
-            <button
+            <Button
                 ref={ref}
-                // onClick={handleChange}
-                onMouseDown={handleChange}
-                onMouseUp={handleChange}
-            // className='card_btn btn btn_save'
-            // type="primary"
-            // shape="round"
-            // size="large"
+                onClick={handleChange}
+                className='card_btn btn btn_save'
+                type="primary"
+                shape="round"
+                size="large"
             >
                 {pressed ? "Translation" : "Check"}
-            </button>
+            </Button>
             <div className={pressed ? 'card_translation' : 'card_translation_hide'}>{word.russian}</div>
 
         </div >

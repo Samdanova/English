@@ -18,6 +18,10 @@
         background: $rightColorHover;
     }
 
+    &:focus {
+        outline: 4px solid $headerground;
+    }
+
 
 &_edit{
     background: $accentColor_hover !important;
