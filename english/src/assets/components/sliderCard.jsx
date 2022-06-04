@@ -13,10 +13,12 @@ export default function SliderCard() { //передаем пропс, 0 буде
     const [searchParams, setSearchParams] = useSearchParams();
 
     const [indexCard, changeIndex] = useState(0);
-    const [learn, changeLearn] = useState(0);
+    const [learn, changeLearn] = useState([]);
 
-    const handleCount = () => {
-        changeLearn((count) => count + 1)
+    const handleCount = (english) => {
+        const newCount = learn.includes(english) ? learn.filter((i) => i !== english)
+            : [...learn, english];
+        changeLearn(newCount)
     }
     const checkIndex = (index) => {
         if (!index) {
@@ -56,8 +58,8 @@ export default function SliderCard() { //передаем пропс, 0 буде
 
 
     return (
-        <div>
-            <div className='title-learning'>Ура! Изучено слов: {learn}</div>
+        <div className='slider'>
+            <div className='title-learning'>Ура! Изучено слов: {learn.length} из {words.length}</div>
             <div className='slider-wrapper'>
                 <Button onClick={() => handleClickButtons('left')} className=" btn btn_save" icon={<LeftOutlined />} shape="circle" size="large"></Button>
                 <CardWord word={words[indexCard]} count={handleCount}></CardWord>

@@ -1,4 +1,13 @@
 .footer {
+    background-color: $headerground;
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    justify-content: left;
     flex: 0 0 auto;
-    padding-top: 6rem;
-    padding-bottom: 4rem;}
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+padding-left: 1rem;
+position: absolute;
+width: 100%;
+}

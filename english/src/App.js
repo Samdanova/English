@@ -3,6 +3,7 @@ import TableOfWords from './assets/components/TableOfWords';
 
 import SliderCard from './assets/components/sliderCard';
 import Header from './assets/components/header';
+import Footer from './assets/components/footer';
 import NotFoundPage from './assets/components/NotFoundPage'
 import 'antd/dist/antd.min.css';
 import words from './json/words.json';
@@ -62,7 +63,9 @@ function App() {
                         />
                         <Route path="*" element={<NotFoundPage />}/>
                     </Route>
+                  
                 </Routes>
+                <Footer></Footer>
             </div>
         </Router>
     );

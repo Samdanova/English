@@ -7,7 +7,7 @@ export default function CardWord({ word, count }) {
     const [pressed, setPressed] = useState(false);
     const handleChange = () => {
         setPressed(!pressed);
-        count();
+        count(word.english);
     }
 
     useEffect(
