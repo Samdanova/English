@@ -16,7 +16,7 @@ export default function SliderCard() { //передаем пропс, 0 буде
     const [learn, changeLearn] = useState([]);
 
     const handleCount = (english) => {
-        const newCount = learn.includes(english) ? learn.filter((i) => i !== english)
+        const newCount = learn.includes(english) ? learn
             : [...learn, english];
         changeLearn(newCount)
     }
