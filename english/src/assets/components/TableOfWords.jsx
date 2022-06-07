@@ -25,7 +25,6 @@ function TableOfWords(props) {
         console.log({ ...state })
     }
 
-    // const prevState = usePrevious(...state);
 
     const englishFormat = /^[a-zA-Z]+$/;
     const rusFormat = /([а-я]+)/ui;
