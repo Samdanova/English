@@ -1,33 +1,84 @@
+/* eslint-disable default-case */
 import React, { useState } from 'react';
-import { Input } from 'antd';
+// import { Input } from 'antd';
 import { Button } from 'antd';
+// import usePrevious from './usePrevious'
 
 function TableOfWords(props) {
     // const [index, countIndex] = useState(0);
 
     const [pressedSave, setSave] = useState(true);
-    const saveString = () => {
-        setSave(!pressedSave);
-        setPressed(!pressedEdit);
-    }
+    const [pressedCancel, setCancel] = useState(false);
     const [pressedEdit, setPressed] = useState(false);
     const editString = () => {
         setPressed(!pressedEdit);
         setSave(!pressedSave);
     }
-
     const [state, setState] = useState(props); // здесь состояние слова
+    const [errorEnglish, setErrorEn] = useState(false)
+    const [errorTransc, setErrorTransc] = useState(false)
+    const [errorRus, setErrorRus] = useState(false)
+    const [errorTag, setErrorTag] = useState(false)
+    const saveString = () => {
+        setSave(!pressedSave);
+        setPressed(!pressedEdit);
+        console.log({ ...state })
+    }
 
+    // const prevState = usePrevious(...state);
+
+    const englishFormat = /^[a-zA-Z]+$/;
+    const rusFormat = /([а-я]+)/ui;
     const handleChange = (event) => {
+
         setState({
             ...state,
             [event.target.dataset.name]: event.target.value, //переписывается свойство
         });
+        let newValue = event.target.value;
+        if (newValue === '') { //проверка на пустую строку
+            switch (event.target.dataset.name) {
+                case 'english':
+                    setErrorEn(true)
+                    break
+                case 'transcription':
+                    setErrorTransc(true);
+                    break
+                case 'russian':
+                    setErrorRus(true);
+                    break
+                case 'tags':
+                    setErrorTag(true);
+                    break
+            }
+        } else if (newValue !== '') {
+            switch (event.target.dataset.name) {
+                case 'english':
+                    const english = englishFormat.test(newValue); //проверка соответствия формата
+                    english ? setErrorEn(false) : setErrorEn(true)
+                    break
+                case 'transcription':
+                    setErrorTransc(false);
+                    break
+                case 'russian':
+                    const russian = rusFormat.test(newValue);
+                    russian ?
+                        setErrorRus(false) : setErrorRus(true)
+                    break
+                case 'tags':
+                    setErrorTag(false);
+                    break
+            }
+        }
+
     };
+
 
     const handleCancel = () => {
         setPressed(!pressedEdit);
         setSave(!pressedSave);
+        setCancel(!pressedCancel)
+
     };
 
     const handleDelete = () => {
@@ -36,22 +87,33 @@ function TableOfWords(props) {
 
     return (
         <tr>
-            <td className="table__data">{pressedEdit
-                && <Input data-name={'english'} value={state.english} onChange={handleChange} defaultValue={props.english} />
+            <td className="table__data" >{pressedEdit
+                && <input className={errorEnglish ? "error_input input" : "input"} data-name={'english'} value={state.english} onChange={handleChange} />
             }{pressedSave //здесь используем state, так как нужно подтянуть последнее состояние 
-                && state.english}</td>
+                && state.english}
+                {/*                 
+                {pressedCancel 
+                    && prevState.english} */}
+
+                {errorEnglish && <div className='error-text'>Fill in the field in correct format</div>}
+            </td>
+
             <td className="table__data">{pressedEdit
-                && <Input data-name={'transcription'} value={state.transcription} onChange={handleChange} defaultValue={props.transcription} />}
-                {pressedSave && state.transcription}</td>
+                && <input data-name={'transcription'} className={errorTransc ? "error_input input" : "input"} value={state.transcription} onChange={handleChange} />}
+                {pressedSave && state.transcription}
+                {errorTransc && <div className='error-text'>Fill in the field!</div>}
+            </td>
             <td className="table__data">{pressedEdit
-                ? <Input data-name={'russian'} value={state.russian} defaultValue={props.russian} onChange={handleChange} />
-                : state.russian}</td>
+                ? <input data-name={'russian'} value={state.russian} onChange={handleChange} className={errorRus ? "error_input input" : "input"} />
+                : state.russian}{errorRus && <div className='error-text'>Fill in the field in correct format</div>}
+            </td>
             <td className="table__data"><div className='table_tags'>{pressedEdit
-                ? <Input defaultValue={props.tags} data-name={'tags'} value={state.tags} onChange={handleChange} />
-                : state.tags}</div></td>
+                ? <input data-name={'tags'} value={state.tags} onChange={handleChange} className={errorTag ? "error_input input" : "input"} />
+                : state.tags}</div>
+                {errorTag && <div className='error-text'>Fill in the field!</div>}</td>
             <td className="table__data">
                 {pressedEdit ?
-                    <Button onClick={saveString} className=" btn btn_save" type="default" shape="circle" size="large">
+                    <Button disabled={errorEnglish || errorTag || errorRus || errorTransc} onClick={saveString} className=" btn btn_save" type="default" shape="circle" size="large">
                         Save
                     </Button>
                     : <Button onClick={editString} className="btn btn_edit" type="default" shape="circle" size="large">
@@ -59,7 +121,7 @@ function TableOfWords(props) {
                     </Button>
                 }
                 {pressedEdit ?
-                    <Button onClick={handleCancel} className="btn btn_del btn_cancel" type="danger " shape="circle" size="large">
+                    <Button onClick={handleCancel} disabled={errorEnglish || errorTag || errorRus || errorTransc} className="btn btn_del btn_cancel" type="danger " shape="circle" size="large">
                         Cancel
                     </Button>
                     :

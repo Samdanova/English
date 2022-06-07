@@ -39,14 +39,35 @@
 
     &:hover {
         color:white ;
-        background: $rightColorHover;
+        background: $rightColorHover !important;
     }
 
-}
+    &:disabled {
+        background: gray;
+    }
+    
+    }
+
+
 &_cancel{
     margin-left: 1rem;
     padding: 0.7rem 0.2rem;
     height: 3rem;
 }     
+}
+
+
+.btn-save {
+
+        .ant-btn:focus{
+            background-color: $rightColor
+        }
+
+        .ant-btn:hover{
+            background-color: $rightColor
+        }
+        .ant-btn:active {
+            background-color: $rightColor
+        }
 
 }

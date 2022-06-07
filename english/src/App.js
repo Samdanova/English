@@ -54,7 +54,7 @@ function App() {
                                     wordCollection.map(
                                         (word) => <TableOfWords deleteWord={handleDelete} key={word.english}
                                             //
-                                            english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags} isSelected={word.isSelected}></TableOfWords>
+                                            english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags} ></TableOfWords>
                                     )
                                 }
                             </tbody>
