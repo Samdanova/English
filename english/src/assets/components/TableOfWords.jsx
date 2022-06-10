@@ -8,7 +8,6 @@ function TableOfWords(props) {
     // const [index, countIndex] = useState(0);
 
     const [pressedSave, setSave] = useState(true);
-    const [pressedCancel, setCancel] = useState(false);
     const [pressedEdit, setPressed] = useState(false);
     const editString = () => {
         setPressed(!pressedEdit);
@@ -74,9 +73,13 @@ function TableOfWords(props) {
 
 
     const handleCancel = () => {
+        setState(props);
         setPressed(!pressedEdit);
         setSave(!pressedSave);
-        setCancel(!pressedCancel)
+        setErrorEn(false)
+        setErrorTransc(false);
+        setErrorRus(false);
+        setErrorTag(false);
 
     };
 
@@ -120,7 +123,7 @@ function TableOfWords(props) {
                     </Button>
                 }
                 {pressedEdit ?
-                    <Button onClick={handleCancel} disabled={errorEnglish || errorTag || errorRus || errorTransc} className="btn btn_del btn_cancel" type="danger " shape="circle" size="large">
+                    <Button onClick={handleCancel} className="btn btn_del btn_cancel" type="danger " shape="circle" size="large">
                         Cancel
                     </Button>
                     :
