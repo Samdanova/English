@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import TableOfWords from './assets/components/TableOfWords';
-
 import SliderCard from './assets/components/sliderCard';
 import Header from './assets/components/header';
 import Footer from './assets/components/footer';
@@ -14,9 +13,10 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import {WordContext} from './assets/components/wordContext'
 
 function App() {
-   
+   const {dataWords} = useContext(WordContext)
     const [wordCollection, setwordCollection] = useState(words)
     const handleDelete = (name) => {
         let array = [...wordCollection];
