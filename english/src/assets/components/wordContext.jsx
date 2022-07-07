@@ -1,43 +1,54 @@
 import React, { useState, useEffect } from "react";
 import { Spin } from 'antd';
 import NotFoundPage from "./NotFoundPage";
-const WordContext = React.createContext();
+// import { ConsoleSqlOutlined } from "@ant-design/icons";
+
+export const WordContext = React.createContext();
+
+
+const fetchDataWords = () =>  //функция получения слов с сервера
+    fetch("http://itgirlschool.justmakeit.ru/api/words")
+        .then((response) => {
+            if (response.ok) {
+                return response.json()
+            }
+        })
+        .then((response) => response)
+        .catch((error) =>
+            console.log("error", error))
 
 function WordContextProvider(props) {
     const [dataWords, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    const fetchDataWords = async () => { //функция получения слов с сервера
-        try {
-            const fetchedData = await fetch(
-                "/api/words"
-            );
-            const data = await fetchedData.json();
-            setData(data);
-        } catch (error) {
-            console.log("error", error);
-            setError(true);
-        }
-        finally {
-            setLoading(false);
-        }
-    };
 
     useEffect(() => {
-        fetchDataWords();
+        console.log('Обратились к API');
+        const data = async () => {
+            const words = await fetchDataWords().catch((err) => setError(err));
+            console.log('words', words);
+            setData(words);
+            setLoading(false);
+        };
+        data();
     }, []) //выполняется один раз при рендере
 
+
+    const contextApp = {
+        dataWords //слова
+    }
+
     if (error) return <NotFoundPage></NotFoundPage>;
-    if (loading || !dataWords.length) return <Spin tip="Loading..." className="spinLoading" />
+    if (loading) return <Spin tip="Loading..." className="spinLoading" />
 
 
     return (
-        <WordContext.Provider value={{ dataWords, fetchDataWords }}>
+        <WordContext.Provider value={{ contextApp, dataWords }}>
             {props.children}
         </WordContext.Provider>
 
     );
 }
 
-export { WordContextProvider, WordContext };
+export default WordContextProvider;

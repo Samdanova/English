@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import CardWord from './cardWord';
 import { Button } from 'antd';
-import words from '../../json/words.json';
+// import words from '../../json/words.json';
+import { WordContext } from './wordContext'
 import {
     LeftOutlined,
     RightOutlined,
@@ -9,6 +10,7 @@ import {
 import { useLocation, useSearchParams } from 'react-router-dom';
 
 export default function SliderCard() { //передаем пропс, 0 будет в случае если пропс не задан
+    const { dataWords } = useContext(WordContext);
     const location = useLocation(); //отслеживаем адрес
     const [searchParams, setSearchParams] = useSearchParams();
 
@@ -25,8 +27,8 @@ export default function SliderCard() { //передаем пропс, 0 буде
             return 0
         }
         if (index < 0) {
-            return words.length - 1;
-        } else if (index >= words.length) {
+            return dataWords.length - 1;
+        } else if (index >= dataWords.length) {
             return 0;
         }
         return index;
@@ -59,10 +61,10 @@ export default function SliderCard() { //передаем пропс, 0 буде
 
     return (
         <div className='slider'>
-            <div className='title-learning'>Ура! Изучено слов: {learn.length} из {words.length}</div>
+            <div className='title-learning'>Ура! Изучено слов: {learn.length} из {dataWords.length}</div>
             <div className='slider-wrapper'>
                 <Button onClick={() => handleClickButtons('left')} className=" btn btn_save" icon={<LeftOutlined />} shape="circle" size="large"></Button>
-                <CardWord word={words[indexCard]} count={handleCount}></CardWord>
+                <CardWord word={dataWords[indexCard]} count={handleCount}></CardWord>
                 <Button onClick={() => handleClickButtons('right')} className=" btn btn_save" type="default" icon={<RightOutlined />} shape="circle" size="large"></Button>
             </div >
         </div>
