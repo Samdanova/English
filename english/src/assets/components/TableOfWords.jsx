@@ -2,13 +2,15 @@
 import React, { useState, useContext } from 'react';
 // import { Input } from 'antd';
 import { Button } from 'antd';
-import { WordContext } from './wordContext'
+import { WordContext } from './wordContext';
+
 
 function TableOfWords(props) {
     // const [index, countIndex] = useState(0);
-    const { contextApp } = useContext(WordContext);
+    const { dataWords, deleteWords, editWords } = useContext(WordContext);
     const [pressedSave, setSave] = useState(true);
     const [pressedEdit, setPressed] = useState(false);
+
     const editString = () => {
         setPressed(!pressedEdit);
         setSave(!pressedSave);
@@ -19,6 +21,7 @@ function TableOfWords(props) {
     const [errorRus, setErrorRus] = useState(false)
     const [errorTag, setErrorTag] = useState(false)
     const saveString = () => {
+        editWords(state)
         setSave(!pressedSave);
         setPressed(!pressedEdit);
         console.log({ ...state })
@@ -83,9 +86,10 @@ function TableOfWords(props) {
 
     };
 
-    const handleDelete = () => {
+    const handleDelete = (event) => {
         // props.deleteWord(state.english)
-        contextApp.deleteWords(state)
+        event.preventDefault()
+        deleteWords(state)
     }
 
     return (

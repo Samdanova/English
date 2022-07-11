@@ -5,87 +5,72 @@ import NotFoundPage from "./NotFoundPage";
 
 export const WordContext = React.createContext();
 
-
-const fetchDataWords = () =>  //функция получения слов с сервера
-    fetch("http://itgirlschool.justmakeit.ru/api/words")
-        .then((response) => {
-            if (response.ok) {
-                return response.json()
-            }
-        })
-        .then((response) => response)
-        .catch((error) =>
-            console.log("error", error))
-
 function WordContextProvider(props) {
     const [dataWords, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const data = async () => {
-        const words = await fetchDataWords().catch((err) => setError(err));
-        console.log('words', words);
-        setData(words);
-        setLoading(false);
+    const fetchDataWords = async () => {
+        setLoading(true) //функция получения слов с сервера
+        await fetch("http://itgirlschool.justmakeit.ru/api/words")
+            .then((response) => {
+                if (response.ok) {
+                    return response.json()
+                }
+            })
+            .then((response) => { setData(response) })
+            .catch((error) => { console.log("error", error); setError(error) })
+            .finally(() => setLoading(false))
     };
+
     useEffect(() => {
         console.log('Обратились к API');
-        data();
+        fetchDataWords();
     }, []) //выполняется один раз при рендере
 
-
-    const editWords = (word) => {
-        fetch(
+    const editWords = async (word) => {
+        await fetch(
             `http://itgirlschool.justmakeit.ru/api/words/${word.id}/update`,
             {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8',
-                },
                 body: JSON.stringify(word),
             }
-        ).catch((err) => setError(err));
-        data();
+        ).then(() => {
+            fetchDataWords()
+        }).catch((err) => setError(err));
     };
-    const deleteWords = (word) => {
-        fetch(
+    const deleteWords = async (word) => {
+        console.log(2, word)
+        setLoading(true)
+        await fetch(
             `http://itgirlschool.justmakeit.ru/api/words/${word.id}/delete`,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8',
-                },
-            }
-        ).catch((err) => setError(err));
-        data();
+            { method: 'POST' }
+        )
+            .then(() => {
+                fetchDataWords()
+            })
+            .catch((err) => setError(err));
     };
-    const addWords = (word) => {
-        fetch(
+    const addWords = async (word) => {
+        setLoading(true)
+        await fetch(
             `http://itgirlschool.justmakeit.ru/api/words/add`,
             {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8',
-                },
                 body: JSON.stringify(word),
             }
-        ).catch((err) => setError(err));
-        data();
-    };
+        ).then(() => {
+            fetchDataWords()
+        }).catch((err) => setError(err));
 
-    const contextApp = {
-        dataWords, //слова
-        addWords,
-        deleteWords,
-        editWords,
-    }
+    };
 
     if (error) return <NotFoundPage></NotFoundPage>;
     if (loading) return <Spin tip="Loading..." className="spinLoading" />
 
 
     return (
-        <WordContext.Provider value={{ contextApp, dataWords }}>
+        <WordContext.Provider value={{ dataWords, addWords, deleteWords, editWords }}>
             {props.children}
         </WordContext.Provider>
 

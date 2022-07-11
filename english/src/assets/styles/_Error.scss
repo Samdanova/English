@@ -18,7 +18,7 @@
     font-size: 2rem;
     position: absolute;
 left: 55%;
-top: 25%;
+top: 70%;
 transform: translate(-50%, -50%) rotateZ(20deg);
 &:hover {
     color: $defaultColorHoverWord;
@@ -26,9 +26,10 @@ transform: translate(-50%, -50%) rotateZ(20deg);
 }
 }
 
-.error-h {position: absolute;
+.error-h {position: relative;
 left: 50%;
 top: 50%;
+margin-top: 20%;
 transform: translate(-50%, -50%) rotateZ(20deg);
 font-size: 20rem;
 font-weight: 800;

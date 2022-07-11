@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import TableOfWords from './assets/components/TableOfWords';
 import SliderCard from './assets/components/sliderCard';
 import Header from './assets/components/header';
@@ -14,6 +14,7 @@ import {
   Route
 } from "react-router-dom";
 import {WordContext} from './assets/components/wordContext'
+import AddWord from './assets/components/addWords';
 
 function App() {
    const {dataWords} = useContext(WordContext);
@@ -36,9 +37,9 @@ function App() {
                         </div>
                             }
                         />
-                        <Route
+                        <Route 
                             index="index"
-                            element={<table className = "table" > <thead>
+                            element={<div><table className = "table" > <thead>
                                 <tr className="table__columns">
                                     <th className="table__columns_item" colSpan={1}>English</th>
                                     <th className="table__columns_item" colSpan={1}>Transctiption</th>
@@ -51,12 +52,14 @@ function App() {
                                 {
                                     dataWords.map(
                                         (word) => <TableOfWords key={word.english}
-                                            //
+                                            id={word.id}
                                             english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags} ></TableOfWords>
                                     )
                                 }
                             </tbody>
                         </table>
+                        <AddWord></AddWord>
+                        </div>
                             }
                         />
                         <Route path="*" element={<NotFoundPage />}/>
