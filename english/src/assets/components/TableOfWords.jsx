@@ -7,7 +7,7 @@ import { WordContext } from './wordContext';
 
 function TableOfWords(props) {
     // const [index, countIndex] = useState(0);
-    const { dataWords, deleteWords, editWords } = useContext(WordContext);
+    const { deleteWords, editWords } = useContext(WordContext);
     const [pressedSave, setSave] = useState(true);
     const [pressedEdit, setPressed] = useState(false);
 

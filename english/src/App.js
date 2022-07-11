@@ -39,7 +39,7 @@ function App() {
                         />
                         <Route 
                             index="index"
-                            element={<div><table className = "table" > <thead>
+                            element={<div className='table-container'><table className = "table" > <thead>
                                 <tr className="table__columns">
                                     <th className="table__columns_item" colSpan={1}>English</th>
                                     <th className="table__columns_item" colSpan={1}>Transctiption</th>

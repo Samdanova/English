@@ -3,7 +3,6 @@ import React, { useEffect, useState, useRef } from 'react';
 
 export default function CardWord({ word, count }) {
     const ref = useRef();
-
     const [pressed, setPressed] = useState(false);
     const handleChange = () => {
         setPressed(!pressed);

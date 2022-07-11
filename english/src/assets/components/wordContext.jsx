@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Spin } from 'antd';
 import NotFoundPage from "./NotFoundPage";
-// import { ConsoleSqlOutlined } from "@ant-design/icons";
 
 export const WordContext = React.createContext();
 
@@ -18,9 +17,12 @@ function WordContextProvider(props) {
                     return response.json()
                 }
             })
-            .then((response) => { setData(response) })
+            .then((response) => {
+                setData(response);
+                console.log(1, response);
+            })
             .catch((error) => { console.log("error", error); setError(error) })
-            .finally(() => setLoading(false))
+            .finally(() => { setLoading(false); console.log(3, dataWords) })
     };
 
     useEffect(() => {
