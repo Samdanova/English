@@ -22,21 +22,62 @@ function WordContextProvider(props) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-
+    const data = async () => {
+        const words = await fetchDataWords().catch((err) => setError(err));
+        console.log('words', words);
+        setData(words);
+        setLoading(false);
+    };
     useEffect(() => {
         console.log('Обратились к API');
-        const data = async () => {
-            const words = await fetchDataWords().catch((err) => setError(err));
-            console.log('words', words);
-            setData(words);
-            setLoading(false);
-        };
         data();
     }, []) //выполняется один раз при рендере
 
 
+    const editWords = (word) => {
+        fetch(
+            `http://itgirlschool.justmakeit.ru/api/words/${word.id}/update`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+                body: JSON.stringify(word),
+            }
+        ).catch((err) => setError(err));
+        data();
+    };
+    const deleteWords = (word) => {
+        fetch(
+            `http://itgirlschool.justmakeit.ru/api/words/${word.id}/delete`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+            }
+        ).catch((err) => setError(err));
+        data();
+    };
+    const addWords = (word) => {
+        fetch(
+            `http://itgirlschool.justmakeit.ru/api/words/add`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+                body: JSON.stringify(word),
+            }
+        ).catch((err) => setError(err));
+        data();
+    };
+
     const contextApp = {
-        dataWords //слова
+        dataWords, //слова
+        addWords,
+        deleteWords,
+        editWords,
     }
 
     if (error) return <NotFoundPage></NotFoundPage>;

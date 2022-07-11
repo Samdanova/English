@@ -1,12 +1,12 @@
 /* eslint-disable default-case */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 // import { Input } from 'antd';
 import { Button } from 'antd';
-// import usePrevious from './usePrevious'
+import { WordContext } from './wordContext'
 
 function TableOfWords(props) {
     // const [index, countIndex] = useState(0);
-
+    const { contextApp } = useContext(WordContext);
     const [pressedSave, setSave] = useState(true);
     const [pressedEdit, setPressed] = useState(false);
     const editString = () => {
@@ -84,7 +84,8 @@ function TableOfWords(props) {
     };
 
     const handleDelete = () => {
-        props.deleteWord(state.english)
+        // props.deleteWord(state.english)
+        contextApp.deleteWords(state)
     }
 
     return (
