@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Spin } from 'antd';
 import NotFoundPage from "./NotFoundPage";
-
+import Loader from "./Loader";
 export const WordContext = React.createContext();
 
 function WordContextProvider(props) {
@@ -15,6 +14,8 @@ function WordContextProvider(props) {
             .then((response) => {
                 if (response.ok) {
                     return response.json()
+                } else {
+                    throw new Error("Something went wrong...")
                 }
             })
             .then((response) => {
@@ -22,7 +23,7 @@ function WordContextProvider(props) {
                 console.log(1, response);
             })
             .catch((error) => { console.log("error", error); setError(error) })
-            .finally(() => { setLoading(false); console.log(3, dataWords) })
+            .finally(() => { setLoading(false) })
     };
 
     useEffect(() => {
@@ -68,7 +69,7 @@ function WordContextProvider(props) {
     };
 
     if (error) return <NotFoundPage></NotFoundPage>;
-    if (loading) return <Spin tip="Loading..." className="spinLoading" />
+    if (loading) return <Loader />
 
 
     return (
