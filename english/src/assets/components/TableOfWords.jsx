@@ -1,11 +1,9 @@
 /* eslint-disable default-case */
 import React, { useState } from 'react';
-// import { Input } from 'antd';
+import { observer, inject } from "mobx-react";
 import { Button } from 'antd';
-// import usePrevious from './usePrevious'
 
-function TableOfWords(props) {
-    // const [index, countIndex] = useState(0);
+const TableOfWords = (props) => {
 
     const [pressedSave, setSave] = useState(true);
     const [pressedEdit, setPressed] = useState(false);
@@ -19,6 +17,7 @@ function TableOfWords(props) {
     const [errorRus, setErrorRus] = useState(false)
     const [errorTag, setErrorTag] = useState(false)
     const saveString = () => {
+        // wordsStore.editWords(state);
         setSave(!pressedSave);
         setPressed(!pressedEdit);
         console.log({ ...state })
@@ -83,9 +82,12 @@ function TableOfWords(props) {
 
     };
 
-    const handleDelete = () => {
-        props.deleteWord(state.english)
+    const handleDelete = (event) => {
+        event.preventDefault();
+        // wordsStore.deleteWords(state)
     }
+
+
 
     return (
         <tr>
