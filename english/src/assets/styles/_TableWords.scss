@@ -2,7 +2,8 @@
     width: 95%;
     border-collapse: collapse;
     table-layout: fixed;
-margin: 5% auto;
+margin: 2% auto;
+margin-bottom: 1%;
 border: 2px solid $defaultColor_hover;
 
     &__header {
@@ -14,7 +15,7 @@ border: 2px solid $defaultColor_hover;
     &__header_p {
         margin-top: -2.5rem;
         margin-left: 3.5rem;
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     &__columns,
@@ -23,7 +24,7 @@ border: 2px solid $defaultColor_hover;
     }
     &__columns_item{
         padding: 1%;
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
 }
@@ -45,10 +46,15 @@ border: 2px solid $defaultColor_hover;
 }
 
 .table_tags{
-    text-align: center  ;
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    justify-content: center;
+    text-align: center;
     border:2px solid $defaultColor_hover;
     background-color: $defaultColor;
-    width: 40%;
+    width: 10vw;
+
 }
 
 .error_input {
@@ -58,6 +64,9 @@ border: 2px solid $defaultColor_hover;
     }
 }
 
+.table-container{
+    min-height: calc(100vh - 70px); //прижала футер
+}
 
 .input{
     display: block;
@@ -75,13 +84,6 @@ border: 2px solid $defaultColor_hover;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-    // &:focus {
-    //     color: #212529;
-    //     // background-color: #fff;
-    //     // border-color: #bdbdbd;
-    //     outline: 0;
-    //     box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
-    // }
 }
 
 .error-text {

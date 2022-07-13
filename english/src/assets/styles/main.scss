@@ -7,7 +7,16 @@
 @import './Slider';
 @import './Button';
 @import './Error';
+@import './AddWords';
+
 
 body{
     font-family: $defaultFont
+}
+
+.spinLoading{
+    margin: 30vh 45vw;
+    text-align: center;
+    font-size: 3rem;
+    color: $headerground;
 }
