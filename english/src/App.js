@@ -13,6 +13,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import AddWord from './assets/components/addWords';
 
 const App = inject(['wordsStore'])(observer(({ wordsStore }) =>  {
 
@@ -35,7 +36,7 @@ wordsStore.fetchDataWords()
                         />
                         <Route
                             index="index"
-                            element={<table className = "table" > <thead>
+                            element={<div className = "table-container"><table className = "table" > <thead>
                                 <tr className="table__columns">
                                     <th className="table__columns_item" colSpan={1}>English</th>
                                     <th className="table__columns_item" colSpan={1}>Transctiption</th>
@@ -47,12 +48,14 @@ wordsStore.fetchDataWords()
                             <tbody className="table__tbody">
                                 {
                                     wordsStore.dataWords.map(
-                                        (word) => <TableOfWords key={word.english}
+                                        (word) => <TableOfWords key={word.english} id={word.id}
                                             english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags} ></TableOfWords>
                                     )
                                 }
                             </tbody>
                         </table>
+                         <AddWord></AddWord>
+                         </div>
                             }
                         />
                         <Route path="*" element={<NotFoundPage />}/>

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { observer, inject } from "mobx-react";
 import { Button } from 'antd';
 
-const TableOfWords = (props) => {
+const TableOfWords = (props, { wordsStore }) => {
 
     const [pressedSave, setSave] = useState(true);
     const [pressedEdit, setPressed] = useState(false);
@@ -84,7 +84,7 @@ const TableOfWords = (props) => {
 
     const handleDelete = (event) => {
         event.preventDefault();
-        // wordsStore.deleteWords(state)
+        wordsStore.deleteWords(state)
     }
 
 
@@ -95,10 +95,6 @@ const TableOfWords = (props) => {
                 && <input className={errorEnglish ? "error_input input" : "input"} data-name={'english'} value={state.english} onChange={handleChange} />
             }{pressedSave //здесь используем state, так как нужно подтянуть последнее состояние 
                 && state.english}
-                {/*                 
-                {pressedCancel 
-                    && prevState.english} */}
-
                 {errorEnglish && <div className='error-text'>Fill in the field in correct format</div>}
             </td>
 
@@ -137,4 +133,4 @@ const TableOfWords = (props) => {
         </tr>
     )
 }
-export default TableOfWords;
+export default inject(['wordsStore'])(observer(TableOfWords));;

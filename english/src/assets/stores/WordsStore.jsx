@@ -1,7 +1,7 @@
-import { action, observable, runInAction, makeAutoObservable } from 'mobx';
+import { makeAutoObservable, observable, action } from 'mobx';
 
 export default class WordsStore {
-    dataWords = [];
+    @observable dataWords = [];
     isloading = false;
     error = null;
 
@@ -9,24 +9,25 @@ export default class WordsStore {
     constructor() {
         makeAutoObservable(this);
     }
-    fetchDataWords = async () => {
+    @action fetchDataWords = async () => {
         if (this.isloading) {
             return
         }
         this.isloading = true //функция получения слов с сервера
-        const data = await fetch("http://itgirlschool.justmakeit.ru/api/words")
+        await fetch("http://itgirlschool.justmakeit.ru/api/words")
             .then((response) => {
                 if (response.ok) {
                     return response.json()
                 } else {
                     throw new Error("Something went wrong...")
                 }
-            }).catch((er) => console.log(er))
-        runInAction(() => {
-            this.dataWords = data;
-            this.isloading = false;
-        });
+            }).then((result) => this.dataWords = [...result]).catch((er) => console.log(er)).finally(() => this.isloading = false)
+        // runInAction(() => {
+        //     this.dataWords = data;
+
+
     }
+
 
 
     editWords = async (word) => {
@@ -45,7 +46,8 @@ export default class WordsStore {
         });
     };
 
-    deleteWords = async (word) => {
+    @action deleteWords = async (word) => {
+        console.log('удаление');
         this.isloading = true;
         await fetch(
             `http://itgirlschool.justmakeit.ru/api/words/${word.id}/delete`,
@@ -58,6 +60,7 @@ export default class WordsStore {
     };
 
     addWords = async (word) => {
+        console.log('добавление');
         this.isloading = true
         await fetch(
             `http://itgirlschool.justmakeit.ru/api/words/add`,
