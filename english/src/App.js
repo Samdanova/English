@@ -15,7 +15,7 @@ import {
 } from "react-router-dom";
 import AddWord from './assets/components/addWords';
 
-const App = inject(['wordsStore'])(observer(({ wordsStore }) =>  {
+const App = ({wordsStore}) =>  {
 
     useEffect(()=>{
 console.log('Обратились к API')
@@ -66,6 +66,6 @@ wordsStore.fetchDataWords()
             </div>
         </Router>
     );
-}))
+}
 
-export default App;
+export default inject(['wordsStore'])(observer(App));

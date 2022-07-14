@@ -17,7 +17,7 @@ const TableOfWords = (props, { wordsStore }) => {
     const [errorRus, setErrorRus] = useState(false)
     const [errorTag, setErrorTag] = useState(false)
     const saveString = () => {
-        // wordsStore.editWords(state);
+        wordsStore.editWords(state);
         setSave(!pressedSave);
         setPressed(!pressedEdit);
         console.log({ ...state })

@@ -1,7 +1,7 @@
-import { makeAutoObservable, observable, action } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 
 export default class WordsStore {
-    @observable dataWords = [];
+   dataWords = [];
     isloading = false;
     error = null;
 
@@ -9,12 +9,12 @@ export default class WordsStore {
     constructor() {
         makeAutoObservable(this);
     }
-    @action fetchDataWords = async () => {
+     fetchDataWords = async () => {
         if (this.isloading) {
             return
         }
         this.isloading = true //функция получения слов с сервера
-        await fetch("http://itgirlschool.justmakeit.ru/api/words")
+        const response = await fetch("http://itgirlschool.justmakeit.ru/api/words")
             .then((response) => {
                 if (response.ok) {
                     return response.json()
@@ -46,7 +46,7 @@ export default class WordsStore {
         });
     };
 
-    @action deleteWords = async (word) => {
+    deleteWords = async (word) => {
         console.log('удаление');
         this.isloading = true;
         await fetch(
