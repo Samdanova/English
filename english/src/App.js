@@ -24,7 +24,7 @@ console.log('Обратились к API')
 wordsStore.fetchDataWords()
     },[])
 
-if (wordsStore.isLoading) return <Loader/>;
+if (wordsStore.isLoading) return <Loader/>; 
 
     return (
         <Router>

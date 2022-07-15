@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { observer, inject } from "mobx-react";
 
-
-
 const AddWord = ({ wordsStore }) => {
     const [newWord, setNew] = useState({});
     const [errorEnglish, setErrorEn] = useState(false)

@@ -16,7 +16,8 @@ const TableOfWords = (props, { wordsStore }) => {
     const [errorTransc, setErrorTransc] = useState(false)
     const [errorRus, setErrorRus] = useState(false)
     const [errorTag, setErrorTag] = useState(false)
-    const saveString = () => {
+
+    const saveString = () => { //функция сохранения 
         wordsStore.editWords(state);
         setSave(!pressedSave);
         setPressed(!pressedEdit);
@@ -82,7 +83,7 @@ const TableOfWords = (props, { wordsStore }) => {
 
     };
 
-    const handleDelete = (event) => {
+    const handleDelete = (event) => { //функция удаления 
         event.preventDefault();
         console.log(state)
         wordsStore.deleteWords(1, state)
