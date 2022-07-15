@@ -5,7 +5,6 @@ import { observer, inject } from "mobx-react";
 
 const AddWord = ({ wordsStore }) => {
     const [newWord, setNew] = useState({});
-    // const { addWords } = useContext(WordContext);
     const [errorEnglish, setErrorEn] = useState(false)
     const [errorTransc, setErrorTransc] = useState(false)
     const [errorRus, setErrorRus] = useState(false)

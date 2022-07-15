@@ -84,7 +84,8 @@ const TableOfWords = (props, { wordsStore }) => {
 
     const handleDelete = (event) => {
         event.preventDefault();
-        wordsStore.deleteWords(state)
+        console.log(state)
+        wordsStore.deleteWords(1, state)
     }
 
 
@@ -133,4 +134,4 @@ const TableOfWords = (props, { wordsStore }) => {
         </tr>
     )
 }
-export default inject(['wordsStore'])(observer(TableOfWords));;
+export default inject(['wordsStore'])(observer(TableOfWords));

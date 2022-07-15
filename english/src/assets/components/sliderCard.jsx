@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import CardWord from './cardWord';
 import { Button } from 'antd';
-import words from '../../json/words.json';
+// import words from '../../json/words.json';
 import {
     LeftOutlined,
     RightOutlined,
 } from '@ant-design/icons';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import { observer, inject } from "mobx-react";
 
-export default function SliderCard() { //передаем пропс, 0 будет в случае если пропс не задан
+function SliderCard({ wordsStore }) { //передаем пропс, 0 будет в случае если пропс не задан
     const location = useLocation(); //отслеживаем адрес
     const [searchParams, setSearchParams] = useSearchParams();
 
@@ -25,8 +26,8 @@ export default function SliderCard() { //передаем пропс, 0 буде
             return 0
         }
         if (index < 0) {
-            return words.length - 1;
-        } else if (index >= words.length) {
+            return wordsStore.dataWords.length - 1;
+        } else if (index >= wordsStore.dataWords.length) {
             return 0;
         }
         return index;
@@ -59,13 +60,15 @@ export default function SliderCard() { //передаем пропс, 0 буде
 
     return (
         <div className='slider'>
-            <div className='title-learning'>Ура! Изучено слов: {learn.length} из {words.length}</div>
+            <div className='title-learning'>Ура! Изучено слов: {learn.length} из {wordsStore.dataWords.length}</div>
             <div className='slider-wrapper'>
                 <Button onClick={() => handleClickButtons('left')} className=" btn btn_save" icon={<LeftOutlined />} shape="circle" size="large"></Button>
-                <CardWord word={words[indexCard]} count={handleCount}></CardWord>
+                <CardWord word={wordsStore.dataWords[indexCard]} count={handleCount}></CardWord>
                 <Button onClick={() => handleClickButtons('right')} className=" btn btn_save" type="default" icon={<RightOutlined />} shape="circle" size="large"></Button>
             </div >
         </div>
     )
 
 }
+
+export default inject(['wordsStore'])(observer(SliderCard));

@@ -4,7 +4,9 @@ import TableOfWords from './assets/components/TableOfWords';
 import SliderCard from './assets/components/sliderCard';
 import Header from './assets/components/header';
 import Footer from './assets/components/footer';
-import NotFoundPage from './assets/components/NotFoundPage'
+import NotFoundPage from './assets/components/NotFoundPage';
+import AddWord from './assets/components/addWords';
+import Loader from './assets/components/Loader';
 import 'antd/dist/antd.min.css';
 import './App.css';
 import './index.css';
@@ -13,7 +15,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import AddWord from './assets/components/addWords';
+
 
 const App = ({wordsStore}) =>  {
 
@@ -21,6 +23,8 @@ const App = ({wordsStore}) =>  {
 console.log('Обратились к API')
 wordsStore.fetchDataWords()
     },[])
+
+if (wordsStore.isLoading) return <Loader/>;
 
     return (
         <Router>
