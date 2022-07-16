@@ -6,7 +6,6 @@ import Header from './assets/components/header';
 import Footer from './assets/components/footer';
 import NotFoundPage from './assets/components/NotFoundPage';
 import AddWord from './assets/components/addWords';
-import Loader from './assets/components/Loader';
 import 'antd/dist/antd.min.css';
 import './App.css';
 import './index.css';
@@ -15,26 +14,24 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import ShowLoaderError from './assets/components/ShowLoaderError';
 
 
 const App = ({wordsStore}) =>  {
 
     useEffect(()=>{
 console.log('Обратились к API')
-wordsStore.fetchDataWords()
-    },[])
-
-if (wordsStore.isLoading) return <Loader/>; 
+wordsStore.fetchDataWords()}, [] )
 
     return (
         <Router>
             <div className="App">
-
+            <ShowLoaderError>
                 <Routes>
                     <Route path="/" element={<Header />}>
                         <Route
                             path="/game"
-                            element={<div className = 'card-container' > <SliderCard></SliderCard>
+                            element={<div className = 'card-container' > <SliderCard/>
                         </div>
                             }
                         />
@@ -52,23 +49,26 @@ if (wordsStore.isLoading) return <Loader/>;
                             <tbody className="table__tbody">
                                 {
                                     wordsStore.dataWords.map(
-                                        (word) => <TableOfWords key={word.english} id={word.id}
-                                            english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags} ></TableOfWords>
+                                        (word) => <TableOfWords key={word.id} id={word.id}
+                                            english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags} />
                                     )
                                 }
                             </tbody>
                         </table>
-                         <AddWord></AddWord>
+                         <AddWord/>
                          </div>
                             }
                         />
                         <Route path="*" element={<NotFoundPage />}/>
                     </Route>
-                  
                 </Routes>
-                <Footer></Footer>
+                </ShowLoaderError>
+                <Footer/>
+
             </div>
         </Router>
+   
+    
     );
 }
 

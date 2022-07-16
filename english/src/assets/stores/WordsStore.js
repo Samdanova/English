@@ -1,7 +1,8 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 
+
 export default class WordsStore {
-   dataWords = [];
+    dataWords = [];
     isloading = false;
     error = null;
 
@@ -58,6 +59,7 @@ export default class WordsStore {
             .then(() => {
                 this.fetchDataWords()
             })
+            .catch((err) => this.error=err)
             .finally(this.isloading = false)
     };
 
@@ -72,8 +74,14 @@ export default class WordsStore {
             }
         ).then(() => {
             this.fetchDataWords()
-        }).catch((err) => console.log(err)).finally(this.isloading = false)
+        }).catch((err) => this.error=err).finally(this.isloading = false)
 
     };
+
+    clearError() {
+        this.error = null;
+      }
+
+
 }
 

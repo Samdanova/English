@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { observer, inject } from "mobx-react";
 import { Button } from 'antd';
+import Loader from './Loader'
 
-const TableOfWords = (props, { wordsStore }) => {
+const TableOfWords = ({ wordsStore, ...props }) => {
 
     const [pressedSave, setSave] = useState(true);
     const [pressedEdit, setPressed] = useState(false);
@@ -86,9 +87,8 @@ const TableOfWords = (props, { wordsStore }) => {
     const handleDelete = (event) => { //функция удаления 
         event.preventDefault();
         console.log(state)
-        wordsStore.deleteWords(1, state)
+        wordsStore.deleteWords(state)
     }
-
 
 
     return (
