@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "proxy": "http://itgirlschool.justmakeit.ru",
   "private": true,
-  "homepage": "https://samdanova.github.io/English-cards/english",
+  "homepage": "https://samdanova.github.io/English-cards/",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-"deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

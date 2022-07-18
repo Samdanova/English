@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -9,13 +9,13 @@ import WordContextProvider from './assets/context/wordContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-    <BrowserRouter>
+  <React.StrictMode>
+    <HashRouter>
     <WordContextProvider>
     <App />
     </WordContextProvider>
-    </BrowserRouter>
-  // </React.StrictMode>
+    </HashRouter>
+  </React.StrictMode>
 );
 
 reportWebVitals();
