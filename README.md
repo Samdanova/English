@@ -14,9 +14,9 @@
 
 ---
 
-![github](https://github.com/Samdanova/English-cards/blob/main/english/src/assets/img/en1.png)
-![github](https://github.com/Samdanova/English-cards/blob/main/english/src/assets/img/en2.png)
-![github](https://github.com/Samdanova/English-cards/blob/main/english/src/assets/img/en3.png)
+![github](https://github.com/Samdanova/English-cards/blob/main/src/assets/img/en1.png)
+![github](https://github.com/Samdanova/English-cards/blob/main/src/assets/img/en2.png)
+![github](https://github.com/Samdanova/English-cards/blob/main/src/assets/img/en3.png)
 #### Используемые технологии:
 
 - React
