@@ -1,9 +1,9 @@
 {
-  "name": "English-cards",
+  "name": "Englishcards",
   "version": "0.1.0",
   "proxy": "http://itgirlschool.justmakeit.ru",
   "private": true,
-  "homepage": "https://samdanova.github.io/English-cards/",
+  "homepage": "https://samdanova.github.io/Englishcards/",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@testing-library/jest-dom": "^5.16.4",
