@@ -1,16 +1,15 @@
 {
   "name": "English",
   "version": "0.1.0",
+  "homepage": "https://samdanova.github.io/English/",
   "proxy": "http://itgirlschool.justmakeit.ru",
   "private": true,
-  "homepage": "https://samdanova.github.io/English/",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.20.1",
-    "gh-pages": "^4.0.0",
     "node-sass": "^7.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -19,12 +18,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
+
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "json-loader": "^0.5.7",
     "sass": "^1.52.1"
   }
