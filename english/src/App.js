@@ -13,20 +13,11 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import {WordContext} from './assets/components/wordContext'
+import {WordContext} from './assets/context/wordContext'
 import AddWord from './assets/components/addWords';
 
 function App() {
    const {dataWords} = useContext(WordContext);
-    // const [wordCollection, setwordCollection] = useState(words)
-    // const handleDelete = (name) => {
-    //     let array = [...wordCollection];
-    //     let index = array.findIndex(el => el.english === name);
-    //     if (index === -1) 
-    //         return false;
-    //     array.splice(index, 1);
-    //     setwordCollection(array);
-    // }
     return (
             <div className="App">
                 <Routes>

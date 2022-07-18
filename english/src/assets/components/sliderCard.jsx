@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
+
 import CardWord from './cardWord';
+
 import { Button } from 'antd';
-// import words from '../../json/words.json';
-import { WordContext } from './wordContext'
+import { WordContext } from '../context/wordContext';
 import {
     LeftOutlined,
     RightOutlined,
 } from '@ant-design/icons';
-import { useLocation, useSearchParams } from 'react-router-dom';
+
 
 export default function SliderCard() { //передаем пропс, 0 будет в случае если пропс не задан
     const { dataWords } = useContext(WordContext);

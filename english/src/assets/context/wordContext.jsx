@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NotFoundPage from "./NotFoundPage";
-import Loader from "./Loader";
+import NotFoundPage from "../components/NotFoundPage";
+import Loader from "../components/Loader";
 export const WordContext = React.createContext();
 
 function WordContextProvider(props) {

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { WordContext } from './wordContext'
+import { WordContext } from '../context/wordContext';
 
 export default function AddWord() {
     const [newWord, setNew] = useState({});
@@ -63,11 +63,6 @@ export default function AddWord() {
     return (
         <div className="addword-container">
             <div className="addword-h">Add a word</div>
-            {/* <input data-name='english' />
-            <input data-name='transcription' />
-            <input data-name='russian' />
-            <input data-name='tags' />
-            <button>Add</button> */}
             <table className='add-table'>
                 <tbody>
                     <tr><td className="table__data add_data">

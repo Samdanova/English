@@ -1,12 +1,10 @@
 /* eslint-disable default-case */
 import React, { useState, useContext } from 'react';
-// import { Input } from 'antd';
 import { Button } from 'antd';
-import { WordContext } from './wordContext';
+import { WordContext } from '../context/wordContext';
 
 
 function TableOfWords(props) {
-    // const [index, countIndex] = useState(0);
     const { deleteWords, editWords } = useContext(WordContext);
     const [pressedSave, setSave] = useState(true);
     const [pressedEdit, setPressed] = useState(false);
@@ -87,7 +85,6 @@ function TableOfWords(props) {
     };
 
     const handleDelete = (event) => {
-        // props.deleteWord(state.english)
         event.preventDefault()
         deleteWords(state)
     }
@@ -98,9 +95,6 @@ function TableOfWords(props) {
                 && <input className={errorEnglish ? "error_input input" : "input"} data-name={'english'} value={state.english} onChange={handleChange} />
             }{pressedSave //здесь используем state, так как нужно подтянуть последнее состояние 
                 && state.english}
-                {/*                 
-                {pressedCancel 
-                    && prevState.english} */}
 
                 {errorEnglish && <div className='error-text'>Fill in the field in correct format</div>}
             </td>
