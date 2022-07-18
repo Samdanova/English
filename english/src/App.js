@@ -1,11 +1,14 @@
 import React, {useContext} from 'react';
+import {WordContext} from './assets/context/wordContext';
+
 import TableOfWords from './assets/components/TableOfWords';
 import SliderCard from './assets/components/sliderCard';
 import Header from './assets/components/header';
 import Footer from './assets/components/footer';
-import NotFoundPage from './assets/components/NotFoundPage'
+import NotFoundPage from './assets/components/NotFoundPage';
+import AddWord from './assets/components/addWords';
+
 import 'antd/dist/antd.min.css';
-// import words from './json/words.json';
 import './App.css';
 import './index.css';
 import {
@@ -13,8 +16,8 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import {WordContext} from './assets/context/wordContext'
-import AddWord from './assets/components/addWords';
+
+
 
 function App() {
    const {dataWords} = useContext(WordContext);
@@ -42,7 +45,7 @@ function App() {
                             <tbody className="table__tbody">
                                 {
                                     dataWords.map(
-                                        (word) => <TableOfWords key={word.english}
+                                        (word) => <TableOfWords key={word.id}
                                             id={word.id}
                                             english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags} ></TableOfWords>
                                     )

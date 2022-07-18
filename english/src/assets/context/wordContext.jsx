@@ -20,7 +20,6 @@ function WordContextProvider(props) {
             })
             .then((response) => {
                 setData(response);
-                console.log(1, response);
             })
             .catch((error) => { console.log("error", error); setError(error) })
             .finally(() => { setLoading(false) })
@@ -43,7 +42,6 @@ function WordContextProvider(props) {
         }).catch((err) => setError(err));
     };
     const deleteWords = async (word) => {
-        console.log(2, word)
         setLoading(true)
         await fetch(
             `http://itgirlschool.justmakeit.ru/api/words/${word.id}/delete`,

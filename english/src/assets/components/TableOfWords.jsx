@@ -22,7 +22,6 @@ function TableOfWords(props) {
         editWords(state)
         setSave(!pressedSave);
         setPressed(!pressedEdit);
-        console.log({ ...state })
     }
 
 
