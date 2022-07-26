@@ -32,7 +32,7 @@ function App() {
                             }
                         />
                         <Route 
-                            index="index"
+                            index 
                             element={<div className='table-container'><table className = "table" > <thead>
                                 <tr className="table__columns">
                                     <th className="table__columns_item" colSpan={1}>English</th>
