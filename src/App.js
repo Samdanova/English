@@ -14,7 +14,8 @@ import './index.css';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  BrowserRouter
 } from "react-router-dom";
 
 
@@ -23,8 +24,8 @@ function App() {
    const {dataWords} = useContext(WordContext);
     return (
             <div className="App">
+            <Header />
                 <Routes>
-                    <Route path="/" element={<Header />}>
                         <Route
                             path="/game"
                             element={<div className = 'card-container' > <SliderCard></SliderCard>
@@ -57,11 +58,9 @@ function App() {
                             }
                         />
                         <Route path="*" element={<NotFoundPage />}/>
-                    </Route>
                 </Routes>
                 <Footer></Footer>
             </div>
-        // </Router>
     );
 }
 
