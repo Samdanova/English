@@ -2,7 +2,6 @@
   "name": "English",
   "version": "0.1.0",
   "homepage": "https://samdanova.github.io/English/",
-  "proxy": "https://cors-everywhere.herokuapp.com/http://itgirlschool.justmakeit.ru",
   "private": true,
   "dependencies": {
     "-": "^0.0.1",
@@ -11,6 +10,7 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.20.1",
+    "http-proxy-middleware": "^2.0.6",
     "node-sass": "^7.0.1",
     "npm": "^8.19.1",
     "react": "^18.0.0",
