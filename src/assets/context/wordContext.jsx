@@ -10,7 +10,7 @@ function WordContextProvider(props) {
 
     const fetchDataWords = async () => {
         setLoading(true) //функция получения слов с сервера
-        await fetch('/itgirlschool.justmakeit.ru/api/words')
+        await fetch('https://itgirlschool.justmakeit.ru/api/words')
             .then((response) => {
                 if (response.ok) {
                     return response.json()
@@ -32,7 +32,7 @@ function WordContextProvider(props) {
 
     const editWords = async (word) => {
         await fetch(
-            `/itgirlschool.justmakeit.ru/api/words/${word.id}/update`,
+            `https://itgirlschool.justmakeit.ru/api/words/${word.id}/update`,
             {
                 method: 'POST',
                 body: JSON.stringify(word),
@@ -44,7 +44,7 @@ function WordContextProvider(props) {
     const deleteWords = async (word) => {
         setLoading(true)
         await fetch(
-            `/itgirlschool.justmakeit.ru/api/words/${word.id}/delete`,
+            `https://itgirlschool.justmakeit.ru/api/words/${word.id}/delete`,
             { method: 'POST' }
         )
             .then(() => {
@@ -55,7 +55,7 @@ function WordContextProvider(props) {
     const addWords = async (word) => {
         setLoading(true)
         await fetch(
-            `/itgirlschool.justmakeit.ru/api/words/add`,
+            `https://itgirlschool.justmakeit.ru/api/words/add`,
             {
                 method: 'POST',
                 body: JSON.stringify(word),
