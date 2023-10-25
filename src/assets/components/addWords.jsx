@@ -68,6 +68,7 @@ export default function AddWord() {
                 <tbody>
                     <tr><td className="table__data add_data">
                         <input
+                            placeholder='English word'
                             className={errorEnglish ? "error_input input" : "input"}
                             data-name={'english'}
                             onChange={handleChange} />
@@ -77,6 +78,7 @@ export default function AddWord() {
 
                         <td className="table__data add_data">
                             <input
+                                placeholder='Transcription'
                                 data-name={'transcription'}
                                 className={errorTransc ? "error_input input" : "input"}
                                 onChange={handleChange} />
@@ -86,6 +88,7 @@ export default function AddWord() {
 
                         <td className="table__data add_data">
                             <input
+                                placeholder='Translate'
                                 data-name={'russian'}
                                 onChange={handleChange}
                                 className={errorRus ? "error_input input" : "input"} />
@@ -95,6 +98,7 @@ export default function AddWord() {
                         <td className="table__data add_data">
                             <div className='table_tags'>
                                 <input
+                                    placeholder='Tags'
                                     data-name={'tags'}
                                     onChange={handleChange}
                                     className={errorTag ? "error_input input" : "input"} />

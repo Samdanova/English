@@ -15,7 +15,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  BrowserRouter
 } from "react-router-dom";
 
 
@@ -27,13 +26,13 @@ function App() {
             <Header />
                 <Routes>
                         <Route
-                            path="/game"
+                            exact path="/game"
                             element={<div className = 'card-container' > <SliderCard></SliderCard>
                         </div>
                             }
                         />
                         <Route 
-                            index 
+                            path="/" 
                             element={<div className='table-container'><table className = "table" > <thead>
                                 <tr className="table__columns">
                                     <th className="table__columns_item" colSpan={1}>English</th>
