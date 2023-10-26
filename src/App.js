@@ -8,7 +8,8 @@ import Footer from './assets/components/Footer';
 import NotFoundPage from './assets/components/NotFoundPage';
 import AddWord from './assets/components/AddWords';
 
-import 'antd/dist/antd.min.css';
+
+import 'antd/dist/reset.css'
 import './App.css';
 import './index.css';
 import {

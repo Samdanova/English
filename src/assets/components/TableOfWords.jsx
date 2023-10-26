@@ -113,7 +113,7 @@ function TableOfWords(props) {
                 {errorTag && <div className='error-text'>Fill in the field!</div>}</td>
             <td className="table__data">
                 {pressedEdit ?
-                    <Button disabled={errorEnglish || errorTag || errorRus || errorTransc} onClick={saveString} className=" btn btn_save" type="default" shape="circle" size="large">
+                    <Button disabled={errorEnglish || errorTag || errorRus || errorTransc} onClick={saveString} className="btn btn_save" type="default" shape="circle" size="large">
                         Save
                     </Button>
                     : <Button onClick={editString} className="btn btn_edit" type="default" shape="circle" size="large">
@@ -121,11 +121,11 @@ function TableOfWords(props) {
                     </Button>
                 }
                 {pressedEdit ?
-                    <Button onClick={handleCancel} className="btn btn_del btn_cancel" type="danger " shape="circle" size="large">
+                    <Button onClick={handleCancel} className="btn btn_del btn_cancel" type="primary" shape="circle" size="large" danger>
                         Cancel
                     </Button>
                     :
-                    <Button onClick={handleDelete} className="btn btn_del" type="danger " shape="circle" size="large">
+                    <Button onClick={handleDelete} className="btn btn_del" type="primary" shape="circle" size="large" danger>
                         Del
                     </Button>
                 }

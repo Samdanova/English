@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
     "react-scripts": "^5.0.1",
+    "sass": "^1.69.5",
     "web-vitals": "^3.5.0"
   },
   "scripts": {
@@ -47,7 +48,6 @@
   },
   "devDependencies": {
     "gh-pages": "^6.0.0",
-    "json-loader": "^0.5.7",
-    "sass": "^1.69.4"
+    "json-loader": "^0.5.7"
   }
 }
