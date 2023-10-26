@@ -26,7 +26,6 @@ function WordContextProvider(props) {
     };
 
     useEffect(() => {
-        console.log('Обратились к API');
         fetchDataWords();
     }, []) //выполняется один раз при рендере
 

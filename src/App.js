@@ -2,11 +2,11 @@ import React, {useContext} from 'react';
 import {WordContext} from './assets/context/wordContext';
 
 import TableOfWords from './assets/components/TableOfWords';
-import SliderCard from './assets/components/sliderCard';
-import Header from './assets/components/header';
-import Footer from './assets/components/footer';
+import SliderCard from './assets/components/SliderCard';
+import Header from './assets/components/Header';
+import Footer from './assets/components/Footer';
 import NotFoundPage from './assets/components/NotFoundPage';
-import AddWord from './assets/components/addWords';
+import AddWord from './assets/components/AddWords';
 
 import 'antd/dist/antd.min.css';
 import './App.css';
@@ -33,7 +33,7 @@ function App() {
                         />
                         <Route 
                             path="/" 
-                            element={<div className='table-container'><table className = "table" > <thead>
+                            element={<div className='table-container'><table className="table"><thead>
                                 <tr className="table__columns">
                                     <th className="table__columns_item" colSpan={1}>English</th>
                                     <th className="table__columns_item" colSpan={1}>Transctiption</th>

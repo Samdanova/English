@@ -1,4 +1,3 @@
-/* eslint-disable default-case */
 import React, { useState, useContext } from 'react';
 import { WordContext } from '../context/wordContext';
 

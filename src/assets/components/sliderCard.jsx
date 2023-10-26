@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
-import CardWord from './cardWord';
+import CardWord from './CardWord';
 
 import { Button } from 'antd';
 import { WordContext } from '../context/wordContext';
@@ -11,7 +11,7 @@ import {
 } from '@ant-design/icons';
 
 
-export default function SliderCard() { //передаем пропс, 0 будет в случае если пропс не задан
+export default function SliderCard() {
     const { dataWords } = useContext(WordContext);
     const location = useLocation(); //отслеживаем адрес
     const [searchParams, setSearchParams] = useSearchParams();
@@ -40,7 +40,6 @@ export default function SliderCard() { //передаем пропс, 0 буде
         const indexHand = searchParams.get('index');
         const newIndex = checkIndex(+indexHand);
         changeIndex(newIndex);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location, checkIndex]) //после изменения выбранной карточки, происходит проверка индекса
 
     const handleClickButtons = (direction) => {
