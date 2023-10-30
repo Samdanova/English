@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import Logo from "../img/logo.png";
 
 
@@ -6,9 +6,9 @@ function Header() {
     return (
         <div>
             <ul className="header">
-                <Link to="/"><img src={Logo} alt="logo" className="logoImg" /></Link>
-                <Link to="/" className="notActivLink" >Home</Link>
-                <Link to="/game" className="notActivLink">Game</Link>
+                <NavLink to="/"><img src={Logo} alt="logo" className="logoImg" /></NavLink>
+                <NavLink to="/" className="notActivLink" >Home</NavLink>
+                <NavLink to="/game" className="notActivLink">Game</NavLink>
             </ul>
             <Outlet />
         </div>

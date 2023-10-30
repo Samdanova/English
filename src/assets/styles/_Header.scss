@@ -20,8 +20,14 @@
 .notActivLink {
     margin: 1rem;
     color: white;
+    text-decoration: none;
 
     &:hover {
         color: black;
     }
+}
+
+.active{
+    color: black;
+    transform: scale(1.1);
 }
