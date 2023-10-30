@@ -23,6 +23,7 @@ https://samdanova.github.io/English/
 
 - React
 - React Hooks
+- Context
 - [React Router](https://v5.reactrouter.com/web/guides/quick-start)
 - [MobX](https://mobx.js.org/getting-started)
 - [SASS](https://sass-lang.com/)

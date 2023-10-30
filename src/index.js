@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import './assets/styles/main.scss';
 import WordContextProvider from './assets/context/wordContext';
 
@@ -18,4 +17,3 @@ root.render(
   </React.StrictMode>
 );
 
-reportWebVitals();

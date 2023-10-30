@@ -1,4 +1,4 @@
-import { Space, Spin } from 'antd';
+import { Spin } from 'antd';
 
 export default function Loader() {
     return (
