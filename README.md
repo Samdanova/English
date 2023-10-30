@@ -32,7 +32,6 @@ https://samdanova.github.io/English/
 
 ```
 git clone https://github.com/Samdanova/English-cards.git
-cd english-cards
 npm install
 npm start
 ```
