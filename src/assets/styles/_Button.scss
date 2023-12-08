@@ -1,16 +1,17 @@
 .btn {
-    font-size: 0.7rem;
+    font-size: 1rem;    
+    border-radius: 50%;
     color: $lightColor;
     letter-spacing: 0.5px;
-    text-decoration: none;
-    text-align: center;
     border: none;
-    padding: 0.4rem 0.2rem;
-    color:white !important;
+    color:white;
+    height: 3rem;
+    width: 3rem;
     &:hover {
         cursor: pointer;
         transition: background-color 0.4s ease;
-        background: $DeleteHover
+        background: $DeleteHover;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
     }
 
     &:active {
@@ -21,25 +22,42 @@
     &:focus {
         outline: 4px solid $headerground;
     }
-
-
+    @media screen and (max-width: $tablet) {
+        font-size: 0.9rem;
+        height: 2.9rem;
+        width: 2.9rem;
+    }
+    @media screen and (max-width: $mobile) {
+        font-size: 0.8rem;
+        height: 2.5rem;
+        width: 2.5rem;
+    }
 &_edit{
-    background: $accentColor_hover !important;
+    background: $accentColor_hover ;
+    margin: 0rem 1rem;
+
+    &:hover {
+        background-color: $darkYelow;
+    }
+
+}
+&_del{
+    background: $DeleteColor ;
     margin: 0rem 1rem;
 
     &:hover {
         color:white;
-        background-color: $darkYelow;
+        background-color: $DeleteHover;
     }
+
 }
 &_save{
-    background: $rightColor !important;
-    height: 3rem;
-    padding: 0.5rem 0.6rem;
-
+    font-size: 0.8rem;
+    background: $rightColor;
+    margin: 0rem 1rem;
     &:hover {
         color:white ;
-        background: $rightColorHover !important;
+        background: $rightColorHover;
     }
 
     &:disabled {
@@ -50,29 +68,12 @@
 
 
 &_cancel{
-    margin-left: 1rem;
-    padding: 0.7rem 0.2rem;
-    height: 3rem;
+    font-size: 0.8rem;
+margin: 0rem 1rem;
 }     
 }
-.btn_cancel{
-    margin-left: 1rem;
-    padding: 0.7rem 0.2rem;
-    height: 3rem;
-}
 
-
-.btn-save {
-
-        .ant-btn:focus{
-            background-color: $rightColor
-        }
-
-        .ant-btn:hover{
-            background-color: $rightColor
-        }
-        .ant-btn:active {
-            background-color: $rightColor
-        }
-
+.button_container{
+    display: inline-block;
+    max-width: 100%;
 }

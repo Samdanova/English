@@ -8,14 +8,22 @@ border: 2px solid $defaultColor_hover;
 
     &__header {
         text-align: center;
-        padding-left: 3rem;
+        padding-left: 2rem;
         padding-top: 1rem;
     }
 
     &__header_p {
         margin-top: -2.5rem;
-        margin-left: 3.5rem;
+        margin-left: 3.4rem;
         font-size: 2rem;
+
+        @media screen and (max-width: $tablet) {
+            font-size: 1rem;
+        }
+
+        @media screen and (max-width: $mobile) {
+            font-size: 0.9rem;
+        }
     }
 
     &__columns,
@@ -23,13 +31,22 @@ border: 2px solid $defaultColor_hover;
         text-align: left;
     }
     &__columns_item{
-        padding: 1%;
+        padding: 1rem;
         font-size: 1.5rem;
+
+        @media screen and (max-width: $tablet) {
+            font-size: 1.2rem;
+        }
+
+        @media screen and (max-width: $mobile) {
+            font-size: 0.9rem;
+        }
     }
 
 }
 
 .table__columns {
+    word-wrap: break-word;
     background-color: $defaultColor_hover;
     color: white;
     font-weight: 600;
@@ -37,24 +54,33 @@ border: 2px solid $defaultColor_hover;
 }
 
 .table__data {
+    box-sizing: content-box;
+    width: 100%;
+    word-wrap: break-word;
     font-size: 1.2rem;
     text-align: left;
     font-weight: 400;
     border-bottom: 0.1px solid rgb(236, 233, 233);
     padding: 1rem;
     background-color: white;
+    word-wrap: break-word;
+    @media screen and (max-width: $tablet) {
+        font-size: 1rem;
+    }
+
+    @media screen and (max-width: $mobile) {
+        font-size: 0.9rem;
+    }
 }
 
 .table_tags{
-    display: flex;
-    flex-wrap: wrap;
-    flex-shrink: 1;
+    box-sizing: content-box;
+    width: 100%;
     justify-content: center;
     text-align: center;
     border:2px solid $defaultColor_hover;
     background-color: $defaultColor;
-    width: 10vw;
-
+    max-width: 15vw;
 }
 
 .error_input {
@@ -83,6 +109,10 @@ border: 2px solid $defaultColor_hover;
     border: 1px solid #bdbdbd;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    @media screen and (max-width: $tablet) {
+        font-size: 0.9rem;
+    }
 
 }
 

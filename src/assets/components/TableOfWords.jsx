@@ -1,11 +1,10 @@
 /* eslint-disable default-case */
-import React, { useState, useContext } from 'react';
-import { Button } from 'antd';
-import { WordContext } from '../context/wordContext';
-
+import React, {useState, useContext} from 'react';
+import {Button} from 'antd';
+import {WordContext} from '../context/wordContext';
 
 function TableOfWords(props) {
-    const { deleteWords, editWords } = useContext(WordContext);
+    const {deleteWords, editWords} = useContext(WordContext);
     const [pressedSave, setSave] = useState(true);
     const [pressedEdit, setPressed] = useState(false);
 
@@ -23,7 +22,6 @@ function TableOfWords(props) {
         setSave(!pressedSave);
         setPressed(!pressedEdit);
     }
-
 
     const englishFormat = /^[a-zA-Z]+$/;
     const rusFormat = /([а-я]+)/ui;
@@ -53,15 +51,18 @@ function TableOfWords(props) {
             switch (event.target.dataset.name) {
                 case 'english':
                     const english = englishFormat.test(newValue); //проверка соответствия формата
-                    english ? setErrorEn(false) : setErrorEn(true)
+                    english
+                        ? setErrorEn(false)
+                        : setErrorEn(true)
                     break
                 case 'transcription':
                     setErrorTransc(false);
                     break
                 case 'russian':
                     const russian = rusFormat.test(newValue);
-                    russian ?
-                        setErrorRus(false) : setErrorRus(true)
+                    russian
+                        ? setErrorRus(false)
+                        : setErrorRus(true)
                     break
                 case 'tags':
                     setErrorTag(false);
@@ -70,7 +71,6 @@ function TableOfWords(props) {
         }
 
     };
-
 
     const handleCancel = () => {
         setState(props);
@@ -89,45 +89,89 @@ function TableOfWords(props) {
     }
 
     return (
-        <tr>
-            <td className="table__data" >{pressedEdit
-                && <input className={errorEnglish ? "error_input input" : "input"} data-name={'english'} value={state.english} onChange={handleChange} />
-            }{pressedSave //здесь используем state, так как нужно подтянуть последнее состояние 
-                && state.english}
+        <tr className='table_row'>
+            <td className="table__data">{
+                    pressedEdit && <input
+                            className={errorEnglish
+                                ? "error_input input"
+                                : "input"}
+                            data-name={'english'}
+                            value={state.english}
+                            onChange={handleChange}/>
+                }{
+                    pressedSave //здесь используем state, так как нужно подтянуть последнее состояние
+                    && state.english
+                }
 
                 {errorEnglish && <div className='error-text'>Fill in the field in correct format</div>}
             </td>
 
-            <td className="table__data">{pressedEdit
-                && <input data-name={'transcription'} className={errorTransc ? "error_input input" : "input"} value={state.transcription} onChange={handleChange} />}
+            <td className="table__data">{
+                    pressedEdit && <input
+                            data-name={'transcription'}
+                            className={errorTransc
+                                ? "error_input input"
+                                : "input"}
+                            value={state.transcription}
+                            onChange={handleChange}/>
+                }
                 {pressedSave && state.transcription}
                 {errorTransc && <div className='error-text'>Fill in the field!</div>}
             </td>
-            <td className="table__data">{pressedEdit
-                ? <input data-name={'russian'} value={state.russian} onChange={handleChange} className={errorRus ? "error_input input" : "input"} />
-                : state.russian}{errorRus && <div className='error-text'>Fill in the field in correct format</div>}
+            <td className="table__data">{
+                    pressedEdit
+                        ? <input
+                                data-name={'russian'}
+                                value={state.russian}
+                                onChange={handleChange}
+                                className={errorRus
+                                    ? "error_input input"
+                                    : "input"}/>
+                        : state.russian
+                }{errorRus && <div className='error-text'>Fill in the field in correct format</div>}
             </td>
-            <td className="table__data"><div className='table_tags'>{pressedEdit
-                ? <input data-name={'tags'} value={state.tags} onChange={handleChange} className={errorTag ? "error_input input" : "input"} />
-                : state.tags}</div>
+            <td className="table__data ">
+                <div className='table_tags'>{
+                        pressedEdit
+                            ? <input
+                                    data-name={'tags'}
+                                    value={state.tags}
+                                    onChange={handleChange}
+                                    className={errorTag
+                                        ? "error_input input"
+                                        : "input"}/>
+                            : state.tags
+                    }</div>
                 {errorTag && <div className='error-text'>Fill in the field!</div>}</td>
-            <td className="table__data">
-                {pressedEdit ?
-                    <Button disabled={errorEnglish || errorTag || errorRus || errorTransc} onClick={saveString} className="btn btn_save" type="default" shape="circle" size="large">
-                        Save
-                    </Button>
-                    : <Button onClick={editString} className="btn btn_edit" type="default" shape="circle" size="large">
-                        Edit
-                    </Button>
+            <td className="table__data button_container">
+                {
+                    pressedEdit
+                        ? <button
+                                disabled={errorEnglish || errorTag || errorRus || errorTransc}
+                                onClick={saveString}
+                                className="btn btn_save"
+                               >
+                                Save
+                            </button>
+                        : <button onClick={editString} className="btn btn_edit">
+                                Edit
+                            </button>
                 }
-                {pressedEdit ?
-                    <Button onClick={handleCancel} className="btn btn_del btn_cancel" type="primary" shape="circle" size="large" danger>
-                        Cancel
-                    </Button>
-                    :
-                    <Button onClick={handleDelete} className="btn btn_del" type="primary" shape="circle" size="large" danger>
-                        Del
-                    </Button>
+                {
+                    pressedEdit
+                        ? <button
+                                onClick={handleCancel}
+                                className="btn btn_del btn_cancel"
+                                type="primary"
+                                >
+                                Cancel
+                            </button>
+                        : <button
+                                onClick={handleDelete}
+                                className="btn btn_del"
+                              >
+                                Del
+                            </button>
                 }
             </td>
         </tr>

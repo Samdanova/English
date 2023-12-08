@@ -106,7 +106,7 @@ export default function AddWord() {
                                 <div className='error-text'>Fill in the field!</div>}
                         </td>
                         <td className="table__data add_data">
-                            <button disabled={errorEnglish || errorTag || errorRus || errorTransc} className=' addButton' onClick={handleAdd}>Add</button>
+                            <button disabled={errorEnglish || errorTag || errorRus || errorTransc} className=' btn addButton' onClick={handleAdd}>Add</button>
                         </td>
                     </tr>
                 </tbody>

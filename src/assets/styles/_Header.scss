@@ -3,14 +3,20 @@
     justify-content: left;
     padding: 1rem;
     align-items: center;
-    background-color:$headerground;
-    // color: $colorHeaderFooterBg; 
+    background-color:$headerground; 
     text-align: center;
     font-size:2rem;
     height: 90px;
     position: sticky;
     top: 0;
     z-index: 1000;
+    
+    @media screen and (max-width: $tablet) {
+        font-size: 1.5rem;
+    }
+    @media screen and (max-width: $mobile) {
+        font-size: 1.3rem;
+    }
 }
 
 .logoImg {

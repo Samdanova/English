@@ -37,7 +37,7 @@ function App() {
                             element={<div className='table-container'><table className="table"><thead>
                                 <tr className="table__columns">
                                     <th className="table__columns_item" colSpan={1}>English</th>
-                                    <th className="table__columns_item" colSpan={1}>Transctiption</th>
+                                    <th className="table__columns_item" colSpan={1}>Transcription</th>
                                     <th className="table__columns_item" colSpan={1}>Russian</th>
                                     <th className="table__columns_item" colSpan={1}>Tags</th>
                                     <th className="table__columns_item" colSpan={1}>Action</th>
