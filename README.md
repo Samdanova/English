@@ -1,4 +1,4 @@
-# Приложение "Изучение английских слов".
+# App "Learning English words by cards"
 
 ---
 # Page:
