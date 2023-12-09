@@ -28,16 +28,13 @@ export default function CardWord({ word, count }) {
                 <div className='card-content_word'>{word.english}</div>
                 <p>{word.transcription}</p>
             </div>
-            <Button
+            <button
                 ref={ref}
                 onClick={handleChange}
                 className='card_btn btn btn_save'
-                type="primary"
-                shape="round"
-                size="large"
             >
                 {pressed ? "Translation" : "Check"}
-            </Button>
+            </button>
             <div className={pressed ? 'card_translation' : 'card_translation_hide'}>{word.russian}</div>
 
         </div >

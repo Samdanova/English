@@ -15,23 +15,7 @@ font-weight: bold;
 font-size: 1.5rem;
 }
 
-.addButton{
-    font-size: 0.7rem;
-    background-color: $defaultColor_hover ;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 1rem;
-    margin: 2%;
-    padding: 1rem;
 
-    &:hover {
-        cursor: pointer;
-        transition: background-color 0.4s ease;
-        background: $DeleteHover;
-        background-color: $rightColor;
-    }
-}
 
 .add_data {
     padding: 0 1rem;
